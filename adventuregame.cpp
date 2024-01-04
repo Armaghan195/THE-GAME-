@@ -713,7 +713,7 @@ void Fight2()
 
 
     }
-    if(wrong guesses==2)
+    if(wrongGuesses==2)
         exit(0);
 
     cout << "[2nd PUZZLE FIGHT END]\n" << endl;
