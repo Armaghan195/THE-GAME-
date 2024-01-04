@@ -208,7 +208,7 @@ void box()
     getline(cin, cp.name);
     cout << "=====================================================" << endl;
     cout << "||                                                 || " << endl;
-    cout << "||     The adventure of "<<cp.name<<"              || " << endl;
+    cout << "     The adventure of "<<cp.name<<"               " << endl;
     cout << "||                                                 || " << endl;
     cout << "=====================================================" << endl;
 }
@@ -218,7 +218,7 @@ void menu()
 {
     bool flag = true;
 
-    cout << "welcome to the adventure of "<<cp.name<<" future hubby" << endl;
+    cout << "welcome to the adventure of "<<cp.name << endl;
     do
     {
         char option;
@@ -468,7 +468,7 @@ void firstencounter()
 
     } while (ans != "a" && ans != "b" && ans != "c" && ans != "d");
 
-    if (wrongAnswer < 3)
+    if (wrongAnswer > 3)
    {
         cout << "You are defeated and Killed by the demon";
         cin.get();
