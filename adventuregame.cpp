@@ -475,7 +475,7 @@ void firstencounter()
 
     } while (ans != "a" && ans != "b" && ans != "c" && ans != "d");
 
-    if (wrongAnswer < 3)
+    if (wrongAnswer == 3)
    {
         cout << "You are defeated and Killed by the demon";
         cin.get();
