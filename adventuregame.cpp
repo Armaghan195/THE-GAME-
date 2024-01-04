@@ -296,9 +296,9 @@ void firstencounter()
     cin.get();
     cout << "He continued walking inside the gate towards the main castle.";
     cout << "He entered the castle and he spotted a scary looking demon." << endl;
-    cout << " it was as if the demon knew that jake would come to see him in" << endl;
+    cout << " It was as if the demon knew that jake would come to see him in" << endl;
     cout << "his castle. The demon was a master at riddles," << endl;
-    cout << " he offered jake some riddles to solve and if jake managed to solve them,";
+    cout << " He offered jake some riddles to solve and if jake managed to solve them,";
     cout << "the demon would accept  defeat and let jake go forward on his journey." << endl;
 
     cin.get();
