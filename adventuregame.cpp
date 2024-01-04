@@ -15,6 +15,7 @@ void FirstSideQuest();
 void sidequest2();
 void Fight2();
 void beforefight();
+void beforefight1();
 void combat(string name, int power, int health);
 //for lowercase
 string tolowercase(const string& str)
@@ -181,6 +182,7 @@ int main()
     sidequest2();
     Fight2();
     beforefight();
+    beforefight1();
 
     combat("Dani", 4, 10);
     combat("ERHA", 8, 20);              //power then health
@@ -206,7 +208,7 @@ void box()
     getline(cin, cp.name);
     cout << "=====================================================" << endl;
     cout << "||                                                 || " << endl;
-    cout << "          The adventure of "<<cp.name<<"              " << endl;
+    cout << "||     The adventure of "<<cp.name<<" future Hubby || " << endl;
     cout << "||                                                 || " << endl;
     cout << "=====================================================" << endl;
 }
@@ -704,16 +706,66 @@ void beforefight()
     cout << "As Jake journeys through the ever-changing landscapes, " <<endl;
     cout << "he finds a moment of respite, sitting by the edge of a massive, ancient tree." << endl;
     cout << "The air is filled with a mystical aura when the mysterious figure enters," << endl;
+    cin.get();
     cout << "silently appearing amidst the dappled sunlight." << endl;
     cout << "Mysterious Figure:Jake, seeker of kin, your quest leads you through realms untold." << endl;
     cout << "Trials await, but fear not, for within you lies the strength to unravel these mysteries. " << endl;
+    cin.get();
+    cout << cp.name <<": Tell me, what must I face?" <<endl;
+    cout << "Mysterious Figure, Beyond the horizon, illusions and truths entwine. "<< endl;
+    cout << "Embrace the challenges; they are stepping stones toward the reunion you seek." << endl;
+
+    cout << "With a gesture, the mysterious figure conjures a radiant apple and offers it to Jake." << endl;
+    cin.get();
+    system ("clear");
+    cout << "Mysterious Figure: Take this. Nourishment for your journey." << endl;
+    cout << " Let the strength of the fruit mirror the resilience within your spirit." << endl;
+    cin.get();
+    cout << "With the gift of the mystical apple, Jake feels a surge of energy and determination." << endl;
+    cout << "The mysterious figure fades into the shadows, leaving Jake fortified and ready to" << endl;
+    cout << "face the trials that lie ahead." << endl;
+    cin.get();
+    cout << "As Jake rests beneath the shade of an ancient tree, a mysterious figure emerges," << endl;
+    cout << "carrying a satchel of mystical potions. The stranger notices Jake and," <<endl;
+    cout << "sensing the purpose in his eyes, decides to share the secrets of his elixirs." << endl;
+    cin.get();
+    cout << "Mysterious Figure: italic Greetings, adventurer. I sense a great journey ahead for you. In my possession," << endl;
+    cout << "I have potions that can aid you on your quest. Potions to boost your experience, strength, and speed." << endl;
+    cin.get();
+
+    cout << "Jake: bold How do you know what I need?" << endl;
+    cin.get();
+
+    cout << "Mysterious Figure: italic The shadows whisper tales, and your determination echoes through the realms." << endl;
+    cout << "If you're prepared to invest some coins, these potions can be yours." << endl;
+    cin.get();
+    cout << "Jake: bold What do you have?" << endl;
+    cin.get();
+
+    cout << "Mysterious Figure: italic Here's what I offer: Potion of Wisdom "<< endl;
+    cin.get();
+    system ("clear");
        // text before entering the shop
     myshop.loadshop(cp);
 }
+/****************************************************************************************************8*/
+void beforefight1() //after shop code
+{
+    cout << "     After visiting the shop, PLAYER proceeds to move forward on his journey. " << endl;
+    cin.get();
+    cout << "He moves ahead towards the town of darkness. full of thorns and dead trees. " << endl;
+    cout << "It was as if this town was cursed by the demons. Suddenly he hears a growl from behind the huts " << endl;
+    cout << cp.name << " moves forward, from where he hears the sound. Suddenly a demon appears in front of "<< cp.name <<". " << endl;
+    cin.get();
 
 
 
 
+
+}  //before first fight code
+
+
+/****************************************************************************************************8*/
 void combat( string name, int power, int health)
 {
     string input;
