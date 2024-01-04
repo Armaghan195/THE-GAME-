@@ -686,7 +686,8 @@ void Fight2()
     string words[] = { "EVADENTUR", "LACMPEX", "TIRP", "VEIL", "OICNS", "TOPS" };
     string solutions[] = { "ADVENTURE", "EXAMPLE", "TRIP", "LIVE", "COINS", "STOP" };
 
-    int correctGuesses = 0;
+    int correctGuesses = 0,wrongGuesses=0;
+    
 
 
     for (int i = 0; i < 3; ++i)
@@ -706,11 +707,14 @@ void Fight2()
         }
         else {
             cout << "Wrong guess. Try again.\n" << endl;
+            wrongGuesses++;
+            
         }
 
 
     }
-
+    if(wrong guesses==2)
+        exit(0);
 
     cout << "[2nd PUZZLE FIGHT END]\n" << endl;
 
