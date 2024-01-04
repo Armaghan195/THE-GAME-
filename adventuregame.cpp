@@ -308,7 +308,7 @@ void firstencounter()
 
     cout << "Player: " << endl;
 
-    cout << "          Where's my sister, demon?" << endl;
+    cout << "          00Where's my sister, demon?" << endl;
 
     cin.get();
 
@@ -391,7 +391,7 @@ void firstencounter()
 
     do
     {
-        cout << "I'm not alive, but I can grow; I don't have lungs, but I need air; I don't have a mouth, " << endl; // THIRD RIDDLE
+        cout << "I'm not alive, but I can grow; I don't have lungs, but I need air, I don't have a mouth, " << endl; // THIRD RIDDLE
         cout << "but water kills me. What am I?" << endl;
         cout << endl;
 
