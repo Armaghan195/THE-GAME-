@@ -278,19 +278,8 @@ void firststory()
     cout << " a huge mysterious forest, the watch indicating him tthe egg," << endl;
     cout << "he follwoed the path the watch showed him and reached a castle where the demon lived." << endl;
     cin.get();
-
-    cout << "Driven by grief, the elder brother sets out to rescue his"<< endl;
-    cout << "kidnapped sister and avenge his fallen sibling. Along the journey," << endl;
-    cout << "he encounters allies, faces challenges, and confronts the demon" << endl;
-    cout << "in an epic showdown with multiple endings." << endl;
-
-    cin.get();
-
     system("clear");
-
-
-
-
+    
 }
  /*-----------------------------------------------------------------------*/
 void firstencounter()
