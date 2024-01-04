@@ -202,9 +202,11 @@ int main()
 /*-----------------------------------------------------------------------*/
 void box()
 {
+    cout << "Enter your character name: ";
+    getline(cin, cp.name);
     cout << "=====================================================" << endl;
     cout << "||                                                 || " << endl;
-    cout << "||     The adventure of Erha's future Hubby        || " << endl;
+    cout << "||     The adventure of "<<cp.name<<" future Hubby || " << endl;
     cout << "||                                                 || " << endl;
     cout << "=====================================================" << endl;
 }
@@ -214,7 +216,7 @@ void menu()
 {
     bool flag = true;
 
-    cout << "welcome to the adventure of Erha's future hubby" << endl;
+    cout << "welcome to the adventure of "<<cp.name<<" future hubby" << endl;
     do
     {
         char option;
@@ -296,9 +298,9 @@ void firstencounter()
     cin.get();
     cout << "He continued walking inside the gate towards the main castle.";
     cout << "He entered the castle and he spotted a scary looking demon." << endl;
-    cout << " It was as if the demon knew that jake would come to see him in" << endl;
+    cout << " it was as if the demon knew that jake would come to see him in" << endl;
     cout << "his castle. The demon was a master at riddles," << endl;
-    cout << " He offered jake some riddles to solve and if jake managed to solve them,";
+    cout << " he offered jake some riddles to solve and if jake managed to solve them,";
     cout << "the demon would accept  defeat and let jake go forward on his journey." << endl;
 
     cin.get();
@@ -308,7 +310,7 @@ void firstencounter()
 
     cout << "Player: " << endl;
 
-    cout << "          00Where's my sister, demon?" << endl;
+    cout << "          Where's my sister, demon?" << endl;
 
     cin.get();
 
@@ -391,7 +393,7 @@ void firstencounter()
 
     do
     {
-        cout << "I'm not alive, but I can grow; I don't have lungs, but I need air, I don't have a mouth, " << endl; // THIRD RIDDLE
+        cout << "I'm not alive, but I can grow; I don't have lungs, but I need air; I don't have a mouth, " << endl; // THIRD RIDDLE
         cout << "but water kills me. What am I?" << endl;
         cout << endl;
 
@@ -475,7 +477,7 @@ void firstencounter()
 
     } while (ans != "a" && ans != "b" && ans != "c" && ans != "d");
 
-    if (wrongAnswer == 3)
+    if (wrongAnswer < 3)
    {
         cout << "You are defeated and Killed by the demon";
         cin.get();
@@ -699,7 +701,13 @@ void Fight2()
 void beforefight()
 {
     system ("clear");
-    cout << " you reached shop " << endl;     // text before entering the shop
+    cout << "As Jake journeys through the ever-changing landscapes, " <<endl;
+    cout << "he finds a moment of respite, sitting by the edge of a massive, ancient tree." << endl;
+    cout << "The air is filled with a mystical aura when the mysterious figure enters," << endl;
+    cout << "silently appearing amidst the dappled sunlight." << endl;
+    cout << "Mysterious Figure:Jake, seeker of kin, your quest leads you through realms untold." << endl;
+    cout << "Trials await, but fear not, for within you lies the strength to unravel these mysteries. " << endl;
+       // text before entering the shop
     myshop.loadshop(cp);
 }
 
