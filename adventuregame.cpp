@@ -48,69 +48,69 @@ player cp;  //current player
 class shop
 {
 
-public: void loadshop(player p)          // class player calling
-{
-
-
-    runshop(p);
-
-}
-
-public: void runshop(player p)
-{
-    int potionp;
-    int armorp;
-    int weaponp;
-    string uinput;
-    string input;
-
-
-
-    while (true)
+    public: void loadshop(player p)          // class player calling
     {
-        potionp = (20 + 10 * p.potion);
-        armorp = 100 * (p.armorvalue + 1);
-        weaponp = 100 * p.weaponvalue;
+
+
+        runshop(p);
+
+    }
+
+    public: void runshop(player p)
+    {
+        int potionp;
+        int armorp;
+        int weaponp;
+      
+        string input;
 
 
 
-        system("clear");
+        while(true)
+        {
+        potionp = (20 + 10 * cp.potion);
+        armorp = 100 * (cp.armorvalue + 1);
+        weaponp = 100 * cp.weaponvalue;
+
+
+
+            system("clear");
         cout << "          shop         " << endl;
         cout << "=======================" << endl;
-        cout << "| (W)eapon:    $" << weaponp << "      |" << endl;
-        cout << "| (A)rmor:     $" << armorp << "      |" << endl;
-        cout << "| (p)otion:    $" << potionp << "      |" << endl;
+        cout << "| (W)eapon:    $" << weaponp <<"      |" << endl;
+        cout << "| (A)rmor:     $" << armorp  <<"      |" << endl;
+        cout << "| (p)otion:    $" << potionp <<"     |" << endl;
         cout << "=======================" << endl;
-        cout << "| (E)xit                 |" << endl;
+        cout << "| (E)xit               |" << endl;
         cout << endl;
 
 
-        cout << "   " << p.name << "'s Stats     " << endl;
+        cout << "   " <<cp.name<<"'s Stats     " << endl;
         cout << "========================" << endl;
-        cout << " Current Health:  " << p.health << endl;
-        cout << " Coins:           " << p.coins << endl;
-        cout << " Weapon Strength: " << p.weaponvalue << endl;
-        cout << " Armor toughness: " << p.armorvalue << endl;
-        cout << " Potions:         " << p.potion << endl;
+        cout << " Current Health:  " <<cp.health<< endl;
+        cout << " Coins:           " <<cp.coins<< endl;
+        cout << " Weapon Strength: " <<cp.weaponvalue<< endl;
+        cout << " Armor toughness: " <<cp.armorvalue<< endl;
+        cout << " Potions:         " <<cp.potion<< endl;
         cout << "========================" << endl;
         // wait for input
 
         getline(cin, input);
 
 
-        if (tolowercase(input) == "p" || tolowercase(input) == "potion")
+        if(tolowercase(input) == "p" || tolowercase(input) == "potion")
         {
-            trybuy("potion", potionp, p);
+            trybuy("potion", potionp);
 
         }
         else if (tolowercase(input) == "w" || tolowercase(input) == "weapon")
         {
-            trybuy("weapon", weaponp, p);
+            trybuy("weapon", weaponp);
 
         }
         else if (tolowercase(input) == "a" || tolowercase(input) == "armor")
         {
-            trybuy("armor", armorp, p);
+            trybuy("armor", armorp );
 
         }
         else if (tolowercase(input) == "e" || tolowercase(input) == "exit")
@@ -121,35 +121,35 @@ public: void runshop(player p)
 
 
 
+        }
+
+
     }
+    void trybuy (string item, int cost )
+    {
+        if(cp.coins >= cost)
+        {
+         if( item == "potion")
+            cp.potion ++;
+
+         else if (item == "weapon")
+            cp.weaponvalue ++;
+
+         else if (item == "armor")
+            cp.armorvalue ++;
 
 
-}
-      void trybuy(string item, int cost, player& p)
-      {
-          if (p.coins >= cost)
-          {
-              if (item == "potion")
-                  p.potion++;
-
-              else if (item == "weapon")
-                  p.weaponvalue++;
-
-              else if (item == "armor")
-                  p.armorvalue++;
+           cp.coins -= cost;
+        }
 
 
-              p.coins -= cost;
-          }
+        else
+        {
+            cout << "Ya dont have enough gold coin pal!!! " << endl;
+            cin.get();
+        }
 
-
-          else
-          {
-              cout << "Ya dont have enough gold coin! " << endl;
-              cin.get();
-          }
-
-      }
+    }
 
 
 };
