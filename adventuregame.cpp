@@ -7,16 +7,7 @@
 
 using namespace std;
 
-void box();
-void menu();
-void firststory();
-void firstencounter();
-void FirstSideQuest();
-void sidequest2();
-void Fight2();
-void beforefight();
-void beforefight1();
-void combat(string name, int power, int health);
+
 //for lowercase
 string tolowercase(const string& str)
 {
@@ -164,6 +155,16 @@ int getcoins() // to get coins
         cp.coins += c;
         return c;
     }
+void box();
+void menu();
+void firststory();
+void firstencounter();
+void FirstSideQuest();
+void sidequest2();
+void Fight2();
+void beforefight();
+void beforefight1();
+void combat(string name, int power, int health);
 
 
 
