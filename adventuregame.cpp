@@ -690,32 +690,35 @@ void Fight2()
     
 
 
-    for (int i = 0; i < 3; ++i)
+   for (int i = 0; i <= 3; ++i)
+{
+    cout << words[i] << endl;
+    string userGuess;
+    cout << "Your guess: ";
+    cin >> userGuess;
+
+
+    string lowercaseUserGuess = tolowercase(userGuess);
+    string lowercaseSolution = tolowercase(solutions[i]);
+
+    if (lowercaseUserGuess == lowercaseSolution) {
+        cout << "Correct! Well done.\n" << endl;
+        correctGuesses++;
+    }
+    else if(lowercaseUserGuess != lowercaseSolution)
     {
-        cout << words[i] << endl;
-        string userGuess;
-        cout << "Your guess: ";
-        cin >> userGuess;
-
-
-        string lowercaseUserGuess = tolowercase(userGuess);
-        string lowercaseSolution = tolowercase(solutions[i]);
-
-        if (lowercaseUserGuess == lowercaseSolution) {
-            cout << "Correct! Well done.\n" << endl;
-            correctGuesses++;
-        }
-        else {
-            cout << "Wrong guess. Try again.\n" << endl;
-            wrongGuesses++;
-            
-        }
-
+        cout << "Wrong guess. Try again.\n" << endl;
+        wrongGuesses++;
 
     }
-    if(wrongGuesses==2)
-        exit(0);
+    
+    if (wrongGuesses == 2)
+        {
+            exit(0); 
+        }
+             
 
+}
     cout << "[2nd PUZZLE FIGHT END]\n" << endl;
 
 
