@@ -206,7 +206,7 @@ void box()
     getline(cin, cp.name);
     cout << "=====================================================" << endl;
     cout << "||                                                 || " << endl;
-    cout << "||     The adventure of "<<cp.name<<" future Hubby || " << endl;
+    cout << "          The adventure of "<<cp.name<<"              " << endl;
     cout << "||                                                 || " << endl;
     cout << "=====================================================" << endl;
 }
