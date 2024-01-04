@@ -703,10 +703,11 @@ void Fight2()
     system("clear");
 
     cout << "[Puzzle Fight Starts]\n" << endl;
+   cout << "(You Must Enter Correct Option! No Second Chances!!!)" << endl;  
 
 
 
-    string words[] = { "EVADENTUR", "LACMPEX", "TIRP", "VEIL", "OICNS", "TOPS" };
+    string words[] = { "EVADENTUR", "LACMPEX", "TPRI", "VEIL", "OICNS", "TOPS" };
     string solutions[] = { "ADVENTURE", "EXAMPLE", "TRIP", "LIVE", "COINS", "STOP" };
 
     int correctGuesses = 0,wrongGuesses=0;
