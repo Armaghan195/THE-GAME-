@@ -216,44 +216,46 @@ void box()
 /*-----------------------------------------------------------------------*/
 void menu()
 {
-    bool flag = true;
+    string option;
 
-    cout << "welcome to the adventure of " << cp.name << endl;
+    cout << "welcome "<<cp.name << "!" << endl;
     do
     {
-        char option;
-        cout << endl;
-        cout << "                       MENU                   " << endl;
-        cout << "                      (S)tart                 " << endl;
-        cout << "                      (Q)uit                  " << endl;
-        cout << "enter your option: ";
-        cin >> option;
+         
+       
+    cout << endl;
+    cout << "                       MENU                   " << endl;
+    cout << "                      (S)tart                 " << endl;
+    cout << "                      (Q)uit                  " << endl;
+    cout << "enter your option: ";
+    cin >> option;
+    
 
-        switch (tolower(option))
-        {
-        case 's':
-            flag = false;
-            system("clear");
-            cout << "Starting..........." << endl;
-            this_thread::sleep_for(chrono::seconds(2));
-            break;
+    if((tolowercase(option)) == "s")
+    {
+        system("clear");
+        cout << "Starting..........." << endl;
+        this_thread::sleep_for(chrono::seconds(2));
+        break;
+    }
 
-        case 'q':
-            flag = false;
-            abort();
-            break;
+     else if((tolowercase(option)) == "q")
+     {
 
-        default:
-            system("clear");
-            cout << "                  wrong input!!!   " << endl;
-            cout << "Press Enter to continue......" << endl;
-            cin.get();
+        exit(0);
+     }
 
-            system("clear");
-            cout << "            Please Select The correct option   " << endl;
+     else
+     {
+        system("clear");
+        cout << "                  wrong input!!!   " << endl;
+        cin.get(); cin.get();
 
-        }
-    } while (flag);
+        system("clear");
+        cout << "            Please Select The correct option   " << endl;
+
+    }
+    }while(tolowercase(option) != "s" || tolowercase(option) != "q");
 }
 
 /*-----------------------------------------------------------------------*/
