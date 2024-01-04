@@ -2,7 +2,7 @@
 #include<string>
 
 #include<chrono>
-#include<thread>
+#include<thread>   
 
 
 using namespace std;
@@ -10,7 +10,7 @@ using namespace std;
 void box();
 void menu();
 void firststory();
-void firstencounter( );
+void firstencounter();
 void FirstSideQuest();
 void sidequest2();
 void Fight2();
@@ -34,13 +34,13 @@ string tolowercase(const string& str)
 
 class player
 {
-    public: string name;
-    public: int coins = 0;
-    public: int health = 10;
-    public: int damage = 1;
-    public: int armorvalue = 0;
-    public: int potion = 5;
-    public: int weaponvalue = 1;
+public: string name;
+public: int coins = 0;
+public: int health = 10;
+public: int damage = 1;
+public: int armorvalue = 0;
+public: int potion = 5;
+public: int weaponvalue = 1;
 
 
 };
@@ -48,57 +48,57 @@ player cp;  //current player
 class shop
 {
 
-    public: void loadshop(player p)          // class player calling
+public: void loadshop(player p)          // class player calling
+{
+
+
+    runshop(p);
+
+}
+
+public: void runshop(player p)
+{
+    int potionp;
+    int armorp;
+    int weaponp;
+    string uinput;
+    string input;
+
+
+
+    while (true)
     {
-
-
-        runshop(p);
-
-    }
-
-    public: void runshop(player p)
-    {
-        int potionp;
-        int armorp;
-        int weaponp;
-        string uinput;
-        string input;
-
-
-
-        while(true)
-        {
         potionp = (20 + 10 * p.potion);
         armorp = 100 * (p.armorvalue + 1);
         weaponp = 100 * p.weaponvalue;
 
 
 
-            system("clear");
+        system("clear");
         cout << "          shop         " << endl;
         cout << "=======================" << endl;
-        cout << "| (W)eapon:    $" << potionp <<"      |" << endl;
-        cout << "| (A)rmor:     $" << armorp  <<"      |" << endl;
-        cout << "| (p)otion:    $" << weaponp <<"      |" << endl;
+        cout << "| (W)eapon:    $" << potionp << "      |" << endl;
+        cout << "| (A)rmor:     $" << armorp << "      |" << endl;
+        cout << "| (p)otion:    $" << weaponp << "      |" << endl;
         cout << "=======================" << endl;
         cout << "| (E)xit                 |" << endl;
         cout << endl;
 
 
-        cout << "   " <<p.name<<"'s Stats     " << endl;
+        cout << "   " << p.name << "'s Stats     " << endl;
         cout << "========================" << endl;
-        cout << " Current Health:  " <<p.health<< endl;
-        cout << " Coins:           " <<p.coins<< endl;
-        cout << " Weapon Strength: " <<p.weaponvalue<< endl;
-        cout << " Armor toughness: " <<p.armorvalue<< endl;
-        cout << " Potions:         " <<p.potion<< endl;
+        cout << " Current Health:  " << p.health << endl;
+        cout << " Coins:           " << p.coins << endl;
+        cout << " Weapon Strength: " << p.weaponvalue << endl;
+        cout << " Armor toughness: " << p.armorvalue << endl;
+        cout << " Potions:         " << p.potion << endl;
         cout << "========================" << endl;
         // wait for input
 
         getline(cin, input);
 
 
-        if(tolowercase(input) == "p" || tolowercase(input) == "potion")
+        if (tolowercase(input) == "p" || tolowercase(input) == "potion")
         {
             trybuy("potion", potionp, p);
 
@@ -121,35 +121,35 @@ class shop
 
 
 
-        }
-
-
     }
-    void trybuy (string item, int cost, player& p )
-    {
-        if(p.coins >= cost)
-        {
-         if( item == "potion")
-            p.potion ++;
-
-         else if (item == "weapon")
-            p.weaponvalue ++;
-
-         else if (item == "armor")
-            p.armorvalue ++;
 
 
-           p.coins -= cost;
-        }
+}
+      void trybuy(string item, int cost, player& p)
+      {
+          if (p.coins >= cost)
+          {
+              if (item == "potion")
+                  p.potion++;
+
+              else if (item == "weapon")
+                  p.weaponvalue++;
+
+              else if (item == "armor")
+                  p.armorvalue++;
 
 
-        else
-        {
-            cout << "Ya dont have enough gold coin! " << endl;
-            cin.get();
-        }
+              p.coins -= cost;
+          }
 
-    }
+
+          else
+          {
+              cout << "Ya dont have enough gold coin! " << endl;
+              cin.get();
+          }
+
+      }
 
 
 };
@@ -168,7 +168,7 @@ shop myshop;
 
 
 int main()
- {
+{
 
     box();
     menu();
@@ -208,7 +208,7 @@ void box()
     getline(cin, cp.name);
     cout << "=====================================================" << endl;
     cout << "||                                                 || " << endl;
-    cout << "     The adventure of "<<cp.name<<"               " << endl;
+    cout << "            The adventure of " << cp.name << "        " << endl;
     cout << "||                                                 || " << endl;
     cout << "=====================================================" << endl;
 }
@@ -218,40 +218,42 @@ void menu()
 {
     bool flag = true;
 
-    cout << "welcome to the adventure of "<<cp.name << endl;
+    cout << "welcome to the adventure of " << cp.name << endl;
     do
     {
         char option;
-    cout << endl;
-    cout << "                       MENU                   " << endl;
-    cout << "                      (S)tart                 " << endl;
-    cout << "                      (Q)uit                  " << endl;
-    cout << "enter your option: ";
-    cin >> option;
+        cout << endl;
+        cout << "                       MENU                   " << endl;
+        cout << "                      (S)tart                 " << endl;
+        cout << "                      (Q)uit                  " << endl;
+        cout << "enter your option: ";
+        cin >> option;
 
-    switch(tolower(option))
-    {case 's':
-        flag = false;
-        system("clear");
-        cout << "Starting..........." << endl;
-        this_thread::sleep_for(chrono::seconds(2));
-        break;
+        switch (tolower(option))
+        {
+        case 's':
+            flag = false;
+            system("clear");
+            cout << "Starting..........." << endl;
+            this_thread::sleep_for(chrono::seconds(2));
+            break;
 
-     case 'q':
-        flag = false;
-        abort();
-        break;
+        case 'q':
+            flag = false;
+            abort();
+            break;
 
-     default:
-        system("clear");
-        cout << "                  wrong input!!!   " << endl;
-        cin.get();
+        default:
+            system("clear");
+            cout << "                  wrong input!!!   " << endl;
+            cout << "Press Enter to continue......" << endl;
+            cin.get();
 
-        system("clear");
-        cout << "            Please Select The correct option   " << endl;
+            system("clear");
+            cout << "            Please Select The correct option   " << endl;
 
-     }
-    }while(flag);
+        }
+    } while (flag);
 }
 
 /*-----------------------------------------------------------------------*/
@@ -261,48 +263,57 @@ void firststory()
     system("clear");
     cout << "On a chilly night, a village was cloaked in snow when ominous beasts attacked." << endl;
     cout << "Among them, a demonic boss sensed power emanating from Jake’s herd," << endl;
-    cout << "where two siblings, a boy and a girl, resided. Tragedy struck as the boy valiantly intervened,"<< endl;
+    cout << "where two siblings, a boy and a girl, resided. Tragedy struck as the boy valiantly intervened," << endl;
+    cout << "Press Enter to continue......" << endl;
     cin.get();
 
     cout << " sacrificing himself to save his sister from the malevolent goblin boss." << endl;
-    cout << "Driven by grief, the elder brother sets out to rescue his kidnapped sister and avenge " << endl;
-    cout << "his fallen sibling. Along the journey, he encounters allies, faces challenges, and" << endl;
+    cout << " When there older brother "<<cp.name<<" returned home he find about "<< endl;
+    cout << " what happened in the village by the villagers" << endl;
+    cout << "Driven by grief, " << cp.name << " sets out to rescue his kidnapped sister and avenge " << endl;
+    cout << "his fallen sibling. Along the journey, " << cp.name << " encounters allies, faces challenges, and" << endl;
+    cout << "Press Enter to continue......" << endl;
     cin.get();
 
     cout << "confronts the demon in an epic showdown with multiple endings." << endl;
-    cout << "Seeking the demon, the brother consults villagers who point him to a wise granny." << endl;
-    cout << "She shares insights on the demon and gifts him a special watch to guide his way."<< endl;
+    cout << "Seeking the demon, " << cp.name << " consults villagers who point him to a wise granny." << endl;
+    cout << "She shares insights on the demon and gifts him a special watch to guide his way." << endl;
+    cout << "Press Enter to continue......" << endl;
     cin.get();
 
-    cout << "At last after the long adventure, crossing the rocky mountains he reached" << endl;
-    cout << " a huge mysterious forest, the watch indicating him tthe egg," << endl;
-    cout << "he follwoed the path the watch showed him and reached a castle where the demon lived." << endl;
+    cout << "At last after the long adventure, crossing the rocky mountains " << cp.name << " reached" << endl;
+    cout << " a huge mysterious forest, the watch indicating him the egg," << endl;
+    cout << cp.name << " follwoed the path the watch showed him and reached a castle where the demon lived." << endl;
+    cout << "Press Enter to continue......" << endl;
     cin.get();
     system("clear");
-    
+
 }
- /*-----------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------*/
 void firstencounter()
 {
     int wrongAnswer = 0;
     string ans;  // Declare ans outside the do-while loop
+    cout << "Press Enter to continue......" << endl;
     cin.get();
-    cout << "He continued walking inside the gate towards the main castle.";
-    cout << "He entered the castle and he spotted a scary looking demon." << endl;
-    cout << " it was as if the demon knew that jake would come to see him in" << endl;
+    cout << cp.name << " continued walking inside the gate towards the main castle.";
+    cout << cp.name << " entered the castle and he spotted a scary looking demon." << endl;
+    cout << " it was as if the demon knew that " << cp.name << " would come to see him in" << endl;
     cout << "his castle. The demon was a master at riddles," << endl;
-    cout << " he offered jake some riddles to solve and if jake managed to solve them,";
-    cout << "the demon would accept  defeat and let jake go forward on his journey." << endl;
+    cout << " he offered " << cp.name << " some riddles to solve and if " << cp.name << " managed to solve them,";
+    cout << "the demon would accept  defeat and let " << cp.name << " go forward on his journey." << endl;
+    cout << "Press Enter to continue......" << endl;
 
     cin.get();
     system("clear");
 
     cout << "\"The door opens with a creaking sound\"" << endl;
 
-    cout << "Player: " << endl;
+    cout << cp.name << endl;
 
     cout << "          Where's my sister, demon?" << endl;
 
+    cout << "Press Enter to continue......" << endl;
     cin.get();
 
     cout << "Demon: " << endl;
@@ -312,18 +323,21 @@ void firstencounter()
 
     cout << "          The demon's eyes gleam as an ethereal mist swirls around." << endl;
 
+    cout << "Press Enter to continue......" << endl;
     cin.get();
 
-    cout << "Player: " << endl;
+    cout << cp.name << endl;
 
     cout << "         I will do whatever I need to to save my sister!" << endl;
 
+    cout << "Press Enter to continue......" << endl;
     cin.get();
 
     cout << "Demon: " << endl;
 
     cout << "        Very well. Here's your first challenge:" << endl;
 
+    cout << "Press Enter to continue......" << endl;
     cin.get();
     system("clear");
 
@@ -341,18 +355,21 @@ void firstencounter()
 
         if (tolowercase(ans) == "a")
         {
-            cout << "Nice";
+            cout << "Nice" << endl;
+
+            cout << "Press Enter to continue......" << endl;
             cin.get();
         }
         else
         {
-            cout << "wrong";
+            cout << "wrong" << endl;
+            cout << "Press Enter to continue......" << endl;
             cin.get();
             wrongAnswer++;
         }
     } while (ans != "a" && ans != "b" && ans != "c" && ans != "d");
 
-     cout << endl;
+    cout << endl;
     system("clear");
 
     do
@@ -369,11 +386,13 @@ void firstencounter()
         if (tolowercase(ans) == "c")
         {
             cout << "Amazing" << endl;
+            cout << "Press Enter to continue......" << endl;
             cin.get();
         }
         else
         {
             cout << "wrong" << endl;
+            cout << "Press Enter to continue......" << endl;
             cin.get();
             wrongAnswer++;
 
@@ -398,11 +417,13 @@ void firstencounter()
         if (tolowercase(ans) == "c")  // Fixed: Changed '=' to '=='
         {
             cout << "Ace" << endl;
+            cout << "Press Enter to continue......" << endl;
             cin.get();
         }
         else
-         {
-            cout << "wrong";
+        {
+            cout << "wrong" << endl;
+            cout << "Press Enter to continue......" << endl;
             cin.get();
             wrongAnswer++;
         }
@@ -424,12 +445,14 @@ void firstencounter()
         cin >> ans;
         if (tolowercase(ans) == "d")
         {
-            cout << "Extraordinary";
+            cout << "Extraordinary" << endl;
+            cout << "Press Enter to continue......" << endl;
             cin.get();
         }
         else
         {
-            cout << "wrong";
+            cout << "wrong" << endl;
+            cout << "Press Enter to continue......" << endl;
             cin.get();
             wrongAnswer++;
         }
@@ -439,11 +462,11 @@ void firstencounter()
 
     do
     {
-        cout << "=============================" << endl;
-        cout << "|                           |" << endl;
-        cout << "|       Final Riddle        |" << endl;
-        cout << "|                           |" << endl;
-        cout << "=============================" << endl;
+        cout << "                                     =============================" << endl;
+        cout << "                                     |                           |" << endl;
+        cout << "                                     |       Final Riddle        |" << endl;
+        cout << "                                     |                           |" << endl;
+        cout << "                                     =============================  " << endl;
         cout << endl;
         cout << endl;
 
@@ -459,7 +482,8 @@ void firstencounter()
         cout << " " << endl;
         if (tolowercase(ans) == "b")
         {
-            cout << "You are the winner of **THE RIDDLE FIGHT** ";
+            cout << "You are the winner of **THE RIDDLE FIGHT** " << endl;
+            cout << "Press Enter to continue......" << endl;
             cin.get();
             system("clear");
         }
@@ -469,12 +493,14 @@ void firstencounter()
     } while (ans != "a" && ans != "b" && ans != "c" && ans != "d");
 
     if (wrongAnswer > 3)
-   {
-        cout << "You are defeated and Killed by the demon";
+    {
+        cout << "You are defeated and Killed by the demon" << endl;
+        cout << "Press Enter to continue......" << endl;
         cin.get();
         exit(0);
     }
 
+    cout << "Press Enter to continue......" << endl;
     cin.get();
 
     system("clear");
@@ -489,6 +515,7 @@ void FirstSideQuest()
 {
     char opt;
     bool invalidInput;
+    cout << "Press Enter to continue......" << endl;
     cin.get();
 
 
@@ -496,11 +523,12 @@ void FirstSideQuest()
     do
     {
 
-        cout << "When he was entering the dark mysterious castle." << endl;
-        cout << "He walked towards the castle but he realised" << endl;
-        cout << "he couldn't enter without solving a riddle"<< endl;
+        cout << "When " << cp.name << " was entering the dark mysterious castle." << endl;
+        cout << "" << cp.name << " walked towards the castle but he realised" << endl;
+        cout << "he couldn't enter without solving a riddle" << endl;
         cout << "  that was displayed on the gate." << endl;
 
+        cout << "Press Enter to continue......" << endl;
         cin.get();
 
 
@@ -533,8 +561,9 @@ void FirstSideQuest()
 
 
             cout << "Door opens......." << endl;
-            cout  << endl;
-            cout  << endl;
+            cout << endl;
+            cout << endl;
+            cout << "Press Enter to continue......" << endl;
             cin.get();
             cin.get();
 
@@ -543,6 +572,7 @@ void FirstSideQuest()
         default:
             cout << "Try Again..." << endl;
             invalidInput = true;
+            cout << "Press Enter to continue......" << endl;
             cin.get(); cin.get();
             system("clear");
             break;
@@ -558,58 +588,63 @@ void sidequest2()
 
 
 
-cout << "As Jake reaches the river, his watch beeps, indicating the presence of the third" <<endl;
-cout << "demon residing on an island. A bascule bridge stands before him, its pathway divided." <<endl;
-cout << "To cross, Jake must solve a puzzle  that controls the \nbridge mechanism."<<endl;
-cout << " With determination, he approaches the puzzle," <<endl;
-cout << "ready to unravel its mystery and continue his journey."<<endl;
+    cout << "As " << cp.name << " reaches the river, his watch beeps, indicating the presence of the third" << endl;
+    cout << "demon residing on an island. A bascule bridge stands before " << cp.name << ", its pathway divided." << endl;
+    cout << "To cross, Jake must solve a puzzle  that controls the \nbridge mechanism." << endl;
+    cout << " With determination, " << cp.name << " approaches the puzzle," << endl;
+    cout << "ready to unravel its mystery and continue his journey." << endl;
+    cout << "Press Enter to continue......" << endl;
 
-cin.get();
-
-system("clear");
-cout << "As he reached the foot of the bridge, his eyes fall on the word puzzle that" <<endl;
-cout << "he needs to solve to get the bascule bridge to close."<<endl;
- cout << endl;
-
- cin.get();
-
-do
-{
-  cout << "It read 'Q..E..S..T..U.. ' \nArrange the letters in a way that it forms a word!" <<endl;
-
-
-  cin >> answer ;
-
-if(tolowercase(answer) == "quest")
-{
-
-    cout << "correct" << endl ;
     cin.get();
+
     system("clear");
+    cout << "As " << cp.name << " reached the foot of the bridge, " << cp.name << " eyes fall on the word puzzle that" << endl;
+    cout << "he needs to solve to get the bascule bridge to close." << endl;
+    cout << endl;
+    cout << "Press Enter to continue......" << endl;
 
-}
-else
-{
-  cout<< "wrong!!" << endl;
-  cin.get(); cin.get();
-  system("clear");
-}
+    cin.get();
 
-
-}while(answer!="quest" && answer!="QUEST");
-
-
-cout << "The moment Jake utters the correct word,\na subtle hum emanates from the bridge's mechanism." ;
-cout << "The segmented pathway seamlessly joins,\nforming a stable walkway across the river.";
-cout << "The distant sound of water splashing against the rocks \naccompanies Jake as he confidently strides forward.";
-cout << "Jake: Another puzzle, another triumph. Onward to the \nisland where the second demon resides!";
-cout << "With the puzzle conquered, the bridge solidifies,\n allowing Jake to continue his quest. ";
+    do
+    {
+        cout << "It read 'Q..E..S..T..U.. ' \nArrange the letters in a way that it forms a word!" << endl;
 
 
-cout << "Jake moves forward through the bridge, \nreaching the island where he spots where he spots the second demon," << endl;
-cout << "a figure shrouded in darkness and adorned with ethereal wisps." << endl;
+        cin >> answer;
 
-cin.get();
+        if (tolowercase(answer) == "quest")
+        {
+
+            cout << "correct" << endl;
+            cout << "Press Enter to continue......" << endl;
+            cin.get();
+            system("clear");
+
+        }
+        else
+        {
+            cout << "wrong!!" << endl;
+            cout << "Press Enter to continue......" << endl;
+            cin.get(); cin.get();
+            system("clear");
+        }
+
+
+    } while (answer != "quest" && answer != "QUEST");
+
+
+    cout << "The moment " << cp.name << " utters the correct word,\na subtle hum emanates from the bridge's mechanism.";
+    cout << "The segmented pathway seamlessly joins,\nforming a stable walkway across the river.";
+    cout << "The distant sound of water splashing against the rocks \naccompanies " << cp.name << " as he confidently strides forward.";
+    cout << "" << cp.name << ": Another puzzle, another triumph. Onward to the \nisland where the second demon resides!";
+    cout << "With the puzzle conquered, the bridge solidifies,\n allowing " << cp.name << " to continue his quest. ";
+
+
+    cout  << cp.name << " moves forward through the bridge, \nreaching the island where he spots where he spots the second demon," << endl;
+    cout << "a figure shrouded in darkness and adorned with ethereal wisps." << endl;
+    cout << "Press Enter to continue......" << endl;
+
+    cin.get();
 
 }
 
@@ -620,21 +655,22 @@ void Fight2()
 
     system("clear");
 
-    cout << "Jake moves forward through the bridge, reaching the mysterious island where shadows seem to dance with an eerie rhythm." << endl;
+    cout  << cp.name << " moves forward through the bridge, reaching the mysterious island where shadows seem to dance with an eerie rhythm." << endl;
 
 
     cout << "As he steps onto the island, he spots the second demon, a figure shrouded in darkness." << endl;
 
 
-    cout << "Jake: \"So, you're the one guarding this island. Where's my sister?\"" << endl;
+    cout << cp.name<< ": \"So, you're the one guarding this island. Where's my sister?\"" << endl;
 
 
-    cout << "Demon: \"Ah, Jake, seeker of kin. Your sister is safe for now. But to proceed, you must prove your intellect." << endl;
+    cout << "Demon: \"Ah, " << cp.name << ", seeker of kin. Your sister is safe for now. But to proceed, you must prove your intellect." << endl;
     cout << "I am the master of word puzzles, and only through wit can you advance.\"" << endl;
 
 
-    cout << "Jake:\"Enough talk. Give me your best shot, demon.\"" << endl;
-
+    cout << cp.name << ":\"Enough talk. Give me your best shot, demon.\"" << endl;
+    cout << endl;
+    cout << "Press Enter to continue......" << endl;
     cin.get(); cin.get();
 
 
@@ -645,14 +681,14 @@ void Fight2()
 
 
 
-    string words[] = { "EVADENTUR", "SEUQST", "TIRP", "VEIL", "OICNS", "TOPS" };
-    string solutions[] = { "ADVENTURE", "QUEST", "TRIP", "LIVE", "COINS", "STOP" };
+    string words[] = { "EVADENTUR", "LACMPEX", "TIRP", "VEIL", "OICNS", "TOPS" };
+    string solutions[] = { "ADVENTURE", "EXAMPLE", "TRIP", "LIVE", "COINS", "STOP" };
 
     int correctGuesses = 0;
 
 
     for (int i = 0; i < 3; ++i)
-     {
+    {
         cout << words[i] << endl;
         string userGuess;
         cout << "Your guess: ";
@@ -679,11 +715,13 @@ void Fight2()
 
     cout << "Demon: \"You may proceed. Your sister awaits, and the challenges will only intensify." << endl;
     cout << "You deserve this egg, take it!\"" << endl;
+    cout << "Press Enter to continue......" << endl;
 
     cin.get(); cin.get();
 
-    cout << "With a nod, the demon dissipates into shadows, allowing Jake to continue his journey," << endl;
+    cout << "With a nod, the demon dissipates into shadows, allowing " << cp.name << " to continue his journey," << endl;
     cout << "each step taking him closer to the ultimate confrontation with the forces that guard his sister." << endl;
+    cout << "Press Enter to continue......" << endl;
     cin.get();  // story before the shop
 
 }
@@ -691,60 +729,68 @@ void Fight2()
 /*-----------------------------------------------------------------------*/
 void beforefight()
 {
-    system ("clear");
-    cout << "As Jake journeys through the ever-changing landscapes, " <<endl;
-    cout << "he finds a moment of respite, sitting by the edge of a massive, ancient tree." << endl;
+    system("clear");
+    cout << "As " << cp.name << " journeys through the ever-changing landscapes, " << endl;
+    cout << cp.name << " finds a moment of respite, sitting by the edge of a massive, ancient tree." << endl;
     cout << "The air is filled with a mystical aura when the mysterious figure enters," << endl;
+    cout << "Press Enter to continue......" << endl;
     cin.get();
     cout << "silently appearing amidst the dappled sunlight." << endl;
-    cout << "Mysterious Figure:Jake, seeker of kin, your quest leads you through realms untold." << endl;
+    cout << "Mysterious Figure:" << cp.name << ", seeker of kin, your quest leads you through realms untold." << endl;
     cout << "Trials await, but fear not, for within you lies the strength to unravel these mysteries. " << endl;
+    cout << "Press Enter to continue......" << endl;
     cin.get();
-    cout << cp.name <<": Tell me, what must I face?" <<endl;
-    cout << "Mysterious Figure, Beyond the horizon, illusions and truths entwine. "<< endl;
+    cout << cp.name << ": Tell me, what must I face?" << endl;
+    cout << "Mysterious Figure, Beyond the horizon, illusions and truths entwine. " << endl;
     cout << "Embrace the challenges; they are stepping stones toward the reunion you seek." << endl;
 
-    cout << "With a gesture, the mysterious figure conjures a radiant apple and offers it to Jake." << endl;
+    cout << "With a gesture, the mysterious figure conjures a radiant apple and offers it to " << cp.name << "." << endl;
+    cout << "Press Enter to continue......" << endl;
     cin.get();
-    system ("clear");
+    system("clear");
     cout << "Mysterious Figure: Take this. Nourishment for your journey." << endl;
     cout << " Let the strength of the fruit mirror the resilience within your spirit." << endl;
+    cout << "Press Enter to continue......" << endl;
     cin.get();
-    cout << "With the gift of the mystical apple, Jake feels a surge of energy and determination." << endl;
-    cout << "The mysterious figure fades into the shadows, leaving Jake fortified and ready to" << endl;
+    cout << "With the gift of the mystical apple, " << cp.name << " feels a surge of energy and determination." << endl;
+    cout << "The mysterious figure fades into the shadows, leaving " << cp.name << " fortified and ready to" << endl;
     cout << "face the trials that lie ahead." << endl;
+    cout << "Press Enter to continue......" << endl;
     cin.get();
-    cout << "As Jake rests beneath the shade of an ancient tree, a mysterious figure emerges," << endl;
-    cout << "carrying a satchel of mystical potions. The stranger notices Jake and," <<endl;
+    cout << "As " << cp.name << " rests beneath the shade of an ancient tree, a mysterious figure emerges," << endl;
+    cout << "carrying a satchel of mystical potions. The stranger notices " << cp.name << " and," << endl;
     cout << "sensing the purpose in his eyes, decides to share the secrets of his elixirs." << endl;
+    cout << "Press Enter to continue......" << endl;
     cin.get();
-    cout << "Mysterious Figure: italic Greetings, adventurer. I sense a great journey ahead for you. In my possession," << endl;
-    cout << "I have potions that can aid you on your quest. Potions to boost your experience, strength, and speed." << endl;
-    cin.get();
-
-    cout << "Jake: bold How do you know what I need?" << endl;
+    cout << "Mysterious Figure:               Greetings, adventurer. I sense a great journey ahead for you. In my possession," << endl;
+    cout << "                                 I have potions that can aid you on your quest. Potions to boost your experience, strength, and speed." << endl;
     cin.get();
 
-    cout << "Mysterious Figure: italic The shadows whisper tales, and your determination echoes through the realms." << endl;
-    cout << "If you're prepared to invest some coins, these potions can be yours." << endl;
-    cin.get();
-    cout << "Jake: bold What do you have?" << endl;
+    cout  << cp.name << ":              How do you know what I need?" << endl;
     cin.get();
 
-    cout << "Mysterious Figure: italic Here's what I offer: Potion of Wisdom "<< endl;
+    cout << "Mysterious Figure:         The shadows whisper tales, and your determination echoes through the realms." << endl;
+    cout << "                           If you're prepared to invest some coins, these potions can be yours." << endl;
     cin.get();
-    system ("clear");
-       // text before entering the shop
+    cout << cp.name << ":               What do you have?" << endl;
+    cin.get();
+
+    cout << "Mysterious Figure:         Here's what I offer: Potion of Wisdom " << endl;
+    cin.get();
+    system("clear");
+    // text before entering the shop
     myshop.loadshop(cp);
 }
 /****************************************************************************************************8*/
 void beforefight1() //after shop code
 {
-    cout << "     After visiting the shop, PLAYER proceeds to move forward on his journey. " << endl;
+    cout << "     After visiting the shop, " << cp.name << " proceeds to move forward on his journey. " << endl;
+    cout << "Press Enter to continue......" << endl;
     cin.get();
-    cout << "He moves ahead towards the town of darkness. full of thorns and dead trees. " << endl;
+    cout << "" << cp.name << " moves ahead towards the town of darkness. full of thorns and dead trees. " << endl;
     cout << "It was as if this town was cursed by the demons. Suddenly he hears a growl from behind the huts " << endl;
-    cout << cp.name << " moves forward, from where he hears the sound. Suddenly a demon appears in front of "<< cp.name <<". " << endl;
+    cout << cp.name << " moves forward, from where he hears the sound. Suddenly a demon appears in front of " << cp.name << ". " << endl;
+    cout << "Press Enter to continue......" << endl;
     cin.get();
 
 
@@ -755,87 +801,89 @@ void beforefight1() //after shop code
 
 
 /****************************************************************************************************8*/
-void combat( string name, int power, int health)
+void combat(string name, int power, int health)
 {
     string input;
     string n = "";
     int p = 0;
     int h = 0;
 
-        n = name;
-        p = power;
-        h = health;
+    n = name;
+    p = power;
+    h = health;
 
 
 
-    while (health > 0 )
+    while (health > 0)
     {
-        system ("clear");
+        system("clear");
         cout << name << endl;
-        cout <<"Power: "<< power << " / " << "Health: " << health << endl;
+        cout << "Power: " << power << " / " << "Health: " << health << endl;
         cout << "=======================" << endl;
         cout << "| (A)ttack  (D)efend  |" << endl;
         cout << "| (R)un     (H)eal    |" << endl;
         cout << "=======================" << endl;
         cout << " Potions: " << cp.potion << "  Health: " << cp.health << endl;
-        getline(cin, input );
-        if(tolowercase(input) == "a" || tolowercase(input) == "attack" )
+        getline(cin, input);
+        if (tolowercase(input) == "a" || tolowercase(input) == "attack")
         {
             //attack
             int damage = power - cp.armorvalue;
 
-             if(damage < 0)
-              damage = 0;
+            if (damage < 0)
+                damage = 0;
 
             srand(time(0));
-            int attack = (1 + rand() % cp.weaponvalue) + (1+  rand() % 4);
+            int attack = (1 + rand() % cp.weaponvalue) + (1 + rand() % 4);
 
-            cout << "With haste you surge forth, your sword flying in your hands! As you pass, the " << n  << endl;
-            cout << "strikes you as you pass " << endl;
-            cout << "You lose " << damage << " health and deal " << attack << " damage " << endl;
+            cout << "With haste " << cp.name << " surge forth, " << cp.name << " sword flying in his hands! As " << cp.name << " pass, the " << n << endl;
+            cout << "strikes " << cp.name << " as he pass " << endl;
+            cout << "" << cp.name << " lose " << damage << " health and deal " << attack << " damage " << endl;
             cp.health -= damage;
 
             health -= attack;
 
 
         }
-        else if(tolowercase(input) == "d" || tolowercase(input) == "defend" )
+        else if (tolowercase(input) == "d" || tolowercase(input) == "defend")
         {
             //defend
-             int damage = (power/4) - cp.armorvalue;
+            int damage = (power / 4) - cp.armorvalue;
 
-              if(damage < 0)
-               damage = 0;
+            if (damage < 0)
+                damage = 0;
 
             srand(time(0));
-            int attack = (1 + rand() % cp.weaponvalue)/2;
+            int attack = (1 + rand() % cp.weaponvalue) / 2;
 
-            cout << "As the " << n  << " prepares to strike, you ready your sword in a defensive stance";
-            cout << "strikes you as you pass " << endl;
-            cout << "You lose " << damage << " health and deal " << attack << " damage " << endl;
+            cout << "As the " << n << " prepares to strike, " << cp.name << " ready his sword in a defensive stance";
+            cout << "strikes " << cp.name << " as " << cp.name << " passes " << endl;
+            cout << cp.name << " lose " << damage << " health and deal " << attack << " damage " << endl;
             cp.health -= damage;
             health -= attack;
         }
-        else if(tolowercase(input) == "r" || tolowercase(input) == "run" )
+        else if (tolowercase(input) == "r" || tolowercase(input) == "run")
         {
             //run
             srand(time(0));
-            if((rand() % 2) == 0)
+            if ((rand() % 2) == 0)
             {
-                cout << "As you sprint away from the " << n << ",it strikes catches you from the back,  " << endl;
-                cout << "sending you sprawling onto the ground. " << endl;
-               int damage =  p - cp.armorvalue;
+                cout << "As " << cp.name << " sprint away from the " << n << ",it strikes catches " << cp.name << " from the back,  " << endl;
+                cout << "sending " << cp.name << " sprawling onto the ground. " << endl;
+                int damage = p - cp.armorvalue;
 
-                if(damage < 0)
-                 damage = 0;
+                if (damage < 0)
+                    damage = 0;
 
-                cout << "You lose "<< damage << " Health and are unable to escape" << endl;
+                cout << cp.name << "lose " << damage << " Health and are unable to escape" << endl;
+                cout << "Press Enter to continue......" << endl;
                 cin.get();
 
             }
             else
             {
-                cout << "You use your crazy ninja moves to evade the " << n << " and you successfully escaped.  " << endl;
+                cout << cp.name << " uses crazy ninja moves to evade the " << n << " and " << cp.name << " successfully escaped.  " << endl;
+                cout << "Press Enter to continue......" << endl;
                 cin.get();
                 // go to store
                 myshop.loadshop(cp);
@@ -847,59 +895,62 @@ void combat( string name, int power, int health)
 
         }
 
-        else if(tolowercase(input) == "h" || tolowercase(input) == "heal" )
+        else if (tolowercase(input) == "h" || tolowercase(input) == "heal")
         {
             //heal
 
-            if(cp.potion == 0)
+            if (cp.potion == 0)
             {
-                cout << "As you desperatly grasp for a portion in your bag, all that you " << endl;
+                cout << "As " << cp.name << " desperatly grasp for a portion in bag, all that " << cp.name << " " << endl;
                 cout << "feel are empty glass flasks.  " << endl;
                 int damage = power - cp.armorvalue;
-                 if (damage < 0)
-                  damage = 0;
+                if (damage < 0)
+                    damage = 0;
 
-                 cp.health -= damage;
+                cp.health -= damage;
 
-                cout << "The " << name << "  strikes you with a mighty blow and you lose " << damage << " health" << endl;
+                cout << "The " << name << "  strikes " << cp.name << " with a mighty blow and " << cp.name << " lose " << damage << " health" << endl;
 
             }
             else
             {
-                cout << "You reached your bag and pulled out a purple flask. " << endl;
-                cout << "and you take a long drink! " << endl;
+                cout << cp.name << " reached  bag and pulled out a purple flask. " << endl;
+                cout << "and takes a long drink! " << endl;
                 int potionvalue = 3;
-                cout << "You gained " << potionvalue << " health. "  << endl;
+                cout << "" << cp.name << " gained " << potionvalue << " health. " << endl;
                 cp.health += potionvalue;
                 cp.potion--;
 
-                cout << "as you were occupied, the "<< n << " advanced and struck." << endl;
-                int damage = (power/2 - cp.armorvalue);
+                cout << "as " << cp.name << " were occupied, the " << n << " advanced and struck." << endl;
+                int damage = (power / 2 - cp.armorvalue);
 
                 if (damage < 0)
-                damage = 0;
+                    damage = 0;
 
-                cout << "you lose " << damage << " Health." << endl;
+                cout << "" << cp.name << " lose " << damage << " Health." << endl;
 
             }
+            cout << "Press Enter to continue......" << endl;
             cin.get();
         }
 
-        if(cp.health <= 0)
+        if (cp.health <= 0)
         {
             //death code
-            cout << "As the " << name << " stands tall and comes down to strike, you have been slayed by the mighty " << name  << endl;
+            cout << "As the " << name << " stands tall and comes down to strike, " << cp.name << " have been slayed by the mighty " << name << endl;
+            cout << "Press Enter to continue......" << endl;
             cin.get();
             exit(0);
         }
-
+        cout << "Press Enter to continue......" << endl;
         cin.get();
 
     }
 
     srand(time(0));
     int c = rand() % 50 + 10;
-    cout << "As you stand victorius over the " << name << " it's body dissolve into  " << c << " Gold coins!" << endl;
+    cout << "As " << cp.name << " stand victorius over the " << name << " it's body dissolve into  " << c << " Gold coins!" << endl;
+    cout << "Press Enter to continue......" << endl;
     cin.get();
 
 
