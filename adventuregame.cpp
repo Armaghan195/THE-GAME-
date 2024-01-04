@@ -77,7 +77,7 @@ class shop
             system("clear");
         cout << "          shop         " << endl;
         cout << "=======================" << endl;
-        cout << "| (W)eapon:    $" << potionp <<"       |" << endl;
+        cout << "| (W)eapon:    $" << potionp <<"      |" << endl;
         cout << "| (A)rmor:     $" << armorp  <<"      |" << endl;
         cout << "| (p)otion:    $" << weaponp <<"      |" << endl;
         cout << "=======================" << endl;
@@ -208,7 +208,7 @@ void box()
     getline(cin, cp.name);
     cout << "=====================================================" << endl;
     cout << "||                                                 || " << endl;
-    cout << "||     The adventure of "<<cp.name<<" future Hubby || " << endl;
+    cout << "||     The adventure of "<<cp.name<<"              || " << endl;
     cout << "||                                                 || " << endl;
     cout << "=====================================================" << endl;
 }
@@ -223,7 +223,7 @@ void menu()
     {
         char option;
     cout << endl;
-    cout << "                       MENU                    " << endl;
+    cout << "                       MENU                   " << endl;
     cout << "                      (S)tart                 " << endl;
     cout << "                      (Q)uit                  " << endl;
     cout << "enter your option: ";
