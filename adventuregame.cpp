@@ -2,7 +2,7 @@
 #include<string>
 
 #include<chrono>
-#include<thread>   
+#include<thread>
 
 
 using namespace std;
@@ -77,9 +77,9 @@ public: void runshop(player p)
         system("clear");
         cout << "          shop         " << endl;
         cout << "=======================" << endl;
-        cout << "| (W)eapon:    $" << potionp << "      |" << endl;
+        cout << "| (W)eapon:    $" << weaponp << "      |" << endl;
         cout << "| (A)rmor:     $" << armorp << "      |" << endl;
-        cout << "| (p)otion:    $" << weaponp << "      |" << endl;
+        cout << "| (p)otion:    $" << potionp << "      |" << endl;
         cout << "=======================" << endl;
         cout << "| (E)xit                 |" << endl;
         cout << endl;
@@ -155,6 +155,16 @@ public: void runshop(player p)
 };
 shop myshop;
 
+int getcoins() // to get coins
+    {
+        int upper = (100);
+        int lower = (10);
+        srand(time(0));
+        int c = (rand() % upper + lower);
+        cp.coins += c;
+        return c;
+    }
+
 
 
 
@@ -221,15 +231,15 @@ void menu()
     cout << "welcome "<<cp.name << "!" << endl;
     do
     {
-         
-       
+
+
     cout << endl;
     cout << "                       MENU                   " << endl;
     cout << "                      (S)tart                 " << endl;
     cout << "                      (Q)uit                  " << endl;
     cout << "enter your option: ";
     cin >> option;
-    
+
 
     if((tolowercase(option)) == "s")
     {
@@ -266,26 +276,31 @@ void firststory()
     cout << "On a chilly night, a village was cloaked in snow when ominous beasts attacked." << endl;
     cout << "Among them, a demonic boss sensed power emanating from Jake’s herd," << endl;
     cout << "where two siblings, a boy and a girl, resided. Tragedy struck as the boy valiantly intervened," << endl;
+    cout << endl;
     cout << "Press Enter to continue......" << endl;
     cin.get();
+    cout << endl;
 
-    cout << " sacrificing himself to save his sister from the malevolent goblin boss." << endl;
-    cout << " When there older brother "<<cp.name<<" returned home he find about "<< endl;
-    cout << " what happened in the village by the villagers" << endl;
+    cout << "sacrificing himself to save his sister from the malevolent goblin boss." << endl;
+    cout << "When there older brother "<<cp.name<<" returned home he find about "<< endl;
+    cout << "what happened in the village by the villagers" << endl;
     cout << "Driven by grief, " << cp.name << " sets out to rescue his kidnapped sister and avenge " << endl;
     cout << "his fallen sibling. Along the journey, " << cp.name << " encounters allies, faces challenges, and" << endl;
+    cout << endl;
     cout << "Press Enter to continue......" << endl;
     cin.get();
 
     cout << "confronts the demon in an epic showdown with multiple endings." << endl;
     cout << "Seeking the demon, " << cp.name << " consults villagers who point him to a wise granny." << endl;
     cout << "She shares insights on the demon and gifts him a special watch to guide his way." << endl;
+     cout << endl;
     cout << "Press Enter to continue......" << endl;
     cin.get();
 
     cout << "At last after the long adventure, crossing the rocky mountains " << cp.name << " reached" << endl;
     cout << " a huge mysterious forest, the watch indicating him the egg," << endl;
     cout << cp.name << " follwoed the path the watch showed him and reached a castle where the demon lived." << endl;
+    cout << endl;
     cout << "Press Enter to continue......" << endl;
     cin.get();
     system("clear");
@@ -296,25 +311,26 @@ void firstencounter()
 {
     int wrongAnswer = 0;
     string ans;  // Declare ans outside the do-while loop
-    cout << "Press Enter to continue......" << endl;
-    cin.get();
+     cout << endl;
+
     cout << cp.name << " continued walking inside the gate towards the main castle.";
     cout << cp.name << " entered the castle and he spotted a scary looking demon." << endl;
     cout << " it was as if the demon knew that " << cp.name << " would come to see him in" << endl;
     cout << "his castle. The demon was a master at riddles," << endl;
     cout << " he offered " << cp.name << " some riddles to solve and if " << cp.name << " managed to solve them,";
     cout << "the demon would accept  defeat and let " << cp.name << " go forward on his journey." << endl;
+    cout << endl;
     cout << "Press Enter to continue......" << endl;
 
     cin.get();
     system("clear");
 
-    cout << "\"The door opens with a creaking sound\"" << endl;
+
 
     cout << cp.name << endl;
 
     cout << "          Where's my sister, demon?" << endl;
-
+    cout << endl;
     cout << "Press Enter to continue......" << endl;
     cin.get();
 
@@ -324,14 +340,14 @@ void firstencounter()
     cout << "         riddles guard the path. Answer correctly, and you may proceed. Fail, and your journey ends." << endl;
 
     cout << "          The demon's eyes gleam as an ethereal mist swirls around." << endl;
-
+    cout << endl;
     cout << "Press Enter to continue......" << endl;
     cin.get();
 
     cout << cp.name << endl;
 
     cout << "         I will do whatever I need to to save my sister!" << endl;
-
+    cout << endl;
     cout << "Press Enter to continue......" << endl;
     cin.get();
 
@@ -358,15 +374,16 @@ void firstencounter()
         if (tolowercase(ans) == "a")
         {
             cout << "Nice" << endl;
+            cout << "You found  "<< getcoins() << " coins!!!" << endl << endl ;
 
             cout << "Press Enter to continue......" << endl;
-            cin.get();
+            cin.ignore(); cin.ignore();
         }
         else
         {
             cout << "wrong" << endl;
             cout << "Press Enter to continue......" << endl;
-            cin.get();
+            cin.ignore(); cin.ignore();
             wrongAnswer++;
         }
     } while (ans != "a" && ans != "b" && ans != "c" && ans != "d");
@@ -388,8 +405,9 @@ void firstencounter()
         if (tolowercase(ans) == "c")
         {
             cout << "Amazing" << endl;
+            cout << "You found  "<< getcoins() << " coins!!!" << endl << endl ;
             cout << "Press Enter to continue......" << endl;
-            cin.get();
+            cin.ignore(); cin.ignore();
         }
         else
         {
@@ -419,8 +437,9 @@ void firstencounter()
         if (tolowercase(ans) == "c")  // Fixed: Changed '=' to '=='
         {
             cout << "Ace" << endl;
+            cout << "You found  "<< getcoins() << " coins!!!" << endl << endl ;
             cout << "Press Enter to continue......" << endl;
-            cin.get();
+            cin.ignore(); cin.ignore();
         }
         else
         {
@@ -448,8 +467,9 @@ void firstencounter()
         if (tolowercase(ans) == "d")
         {
             cout << "Extraordinary" << endl;
+            cout << "You found  "<< getcoins() << " coins!!!" << endl << endl ;
             cout << "Press Enter to continue......" << endl;
-            cin.get();
+            cin.ignore(); cin.ignore();
         }
         else
         {
@@ -485,8 +505,9 @@ void firstencounter()
         if (tolowercase(ans) == "b")
         {
             cout << "You are the winner of **THE RIDDLE FIGHT** " << endl;
+            cout << "You found  "<< getcoins() << " coins!!!" << endl << endl ;
             cout << "Press Enter to continue......" << endl;
-            cin.get();
+            cin.ignore(); cin.ignore();
             system("clear");
         }
         else
@@ -494,9 +515,9 @@ void firstencounter()
 
     } while (ans != "a" && ans != "b" && ans != "c" && ans != "d");
 
-    if (wrongAnswer > 3)
+    if (wrongAnswer >= 3)
     {
-        cout << "You are defeated and Killed by the demon" << endl;
+        cout << "You cant even answer simple riddles? you low iq noob!!!" << endl;
         cout << "Press Enter to continue......" << endl;
         cin.get();
         exit(0);
@@ -512,31 +533,29 @@ void firstencounter()
 
 
 
-void FirstSideQuest()
+void FirstSideQuest()      // it comes before the above function
 
 {
-    char opt;
-    bool invalidInput;
-    cout << "Press Enter to continue......" << endl;
-    cin.get();
+    string opt;
 
 
 
-    do
-    {
+
+
 
         cout << "When " << cp.name << " was entering the dark mysterious castle." << endl;
         cout << "" << cp.name << " walked towards the castle but he realised" << endl;
         cout << "he couldn't enter without solving a riddle" << endl;
         cout << "  that was displayed on the gate." << endl;
-
+        cout << endl;
         cout << "Press Enter to continue......" << endl;
         cin.get();
 
 
 
 
-        invalidInput = false;
+     do
+     {
         cout << "It said: " << endl;
         cout << "            When a door is not shut tight," << endl;
         cout << "            It's a state that feels just right." << endl;
@@ -554,32 +573,35 @@ void FirstSideQuest()
 
 
 
-        switch (toupper(opt))
+        if((tolowercase(opt)) == "c")
         {
-        case 'C':
+
             cout << endl;
-            cout << endl;
+
+            cout << "You found  "<< getcoins() << " coins!!!" << endl << endl ;
 
 
-
-            cout << "Door opens......." << endl;
+            cout << "\"The door opens with a creaking sound\"" << endl;
             cout << endl;
             cout << endl;
             cout << "Press Enter to continue......" << endl;
-            cin.get();
-            cin.get();
+            cin.ignore(); cin.ignore();
 
-
-            break;
-        default:
-            cout << "Try Again..." << endl;
-            invalidInput = true;
-            cout << "Press Enter to continue......" << endl;
-            cin.get(); cin.get();
-            system("clear");
             break;
         }
-    } while (invalidInput);
+
+
+
+        else
+        {
+            cout << "Try Again..." << endl;
+/////////////////////////////////
+
+            cin.get(); cin.get();
+            system("clear");
+
+        }
+    } while (tolowercase(opt) != "c");
 
     system("clear");
 }
@@ -618,8 +640,9 @@ void sidequest2()
         {
 
             cout << "correct" << endl;
+            cout << "You found  "<< getcoins() << " coins!!!" << endl << endl ;
             cout << "Press Enter to continue......" << endl;
-            cin.get();
+            cin.ignore(); cin.ignore();
             system("clear");
 
         }
@@ -687,10 +710,10 @@ void Fight2()
     string solutions[] = { "ADVENTURE", "EXAMPLE", "TRIP", "LIVE", "COINS", "STOP" };
 
     int correctGuesses = 0,wrongGuesses=0;
-    
 
 
-   for (int i = 0; i <= 3; ++i)
+
+   for (int i = 0; i <= 5; ++i)
 {
     cout << words[i] << endl;
     string userGuess;
@@ -701,8 +724,10 @@ void Fight2()
     string lowercaseUserGuess = tolowercase(userGuess);
     string lowercaseSolution = tolowercase(solutions[i]);
 
-    if (lowercaseUserGuess == lowercaseSolution) {
+    if (lowercaseUserGuess == lowercaseSolution)
+     {
         cout << "Correct! Well done.\n" << endl;
+        cout << "You found  "<< getcoins() << " coins!!!" << endl << endl ;
         correctGuesses++;
     }
     else if(lowercaseUserGuess != lowercaseSolution)
@@ -711,12 +736,14 @@ void Fight2()
         wrongGuesses++;
 
     }
-    
-    if (wrongGuesses == 2)
+
+    if (wrongGuesses >= 3)
         {
-            exit(0); 
+            cout << "You noob cant even spell the word right!!!, better luck next time!";
+            cin.ignore();
+            exit(0);
         }
-             
+
 
 }
     cout << "[2nd PUZZLE FIGHT END]\n" << endl;
@@ -958,7 +985,7 @@ void combat(string name, int power, int health)
 
     srand(time(0));
     int c = rand() % 50 + 10;
-    cout << "As " << cp.name << " stand victorius over the " << name << " it's body dissolve into  " << c << " Gold coins!" << endl;
+    cout << "As " << cp.name << " stand victorius over the " << name << " it's body dissolve into  " << getcoins()  << " Gold coins!" << endl;
     cout << "Press Enter to continue......" << endl;
     cin.get();
 
