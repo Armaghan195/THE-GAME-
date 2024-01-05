@@ -2,8 +2,6 @@
 #include<string>
 
 
-
-
 using namespace std;
 
 
@@ -18,6 +16,7 @@ string tolowercase(const string& str)
     return result;
 } //for lower case
 //.................................
+
 
 
 
@@ -154,6 +153,26 @@ int getcoins() // to get coins
     cp.coins += c;
     return c;
 }
+char qui;
+void quit()
+{
+    string quit;
+    do {
+        cout << "Are you sure you want to quit the game?" << endl;
+        cout << "Y for Yes and N for No ";
+        cin >> quit;
+        if (tolowercase(quit) == "y")
+        {
+            cout << "Thanks For Playing!!!" << endl;
+            exit(0);
+        }
+        if (tolowercase(quit) == "n")
+        {
+            break;
+
+        }
+    } while (tolowercase(quit) != "y" || tolowercase(quit) != "n");
+}
 void box();
 void menu();
 void firststory();
@@ -180,10 +199,12 @@ void combat(string name, int power, int health);
 int main()
 {
 
+
     box();
     menu();
 
     firststory();
+
     FirstSideQuest();
     firstencounter();
 
@@ -218,7 +239,7 @@ void box()
     getline(cin, cp.name);
     cout << "=====================================================" << endl;
     cout << "||                                                 || " << endl;
-    cout << "            The adventure of " << cp.name << "        " << endl;
+    cout << "                  ABYSSAL ODYSSEY                              " << endl;
     cout << "||                                                 || " << endl;
     cout << "=====================================================" << endl;
 }
@@ -244,8 +265,8 @@ void menu()
         if ((tolowercase(option)) == "s")
         {
             system("cls");
-            cout << "Starting..........." << endl;
-           cin.ignore();
+            cout << "Starting..........." << endl << endl;
+            cout << "Press Enter to continue......" << endl;
             break;
         }
 
@@ -277,8 +298,14 @@ void firststory()
     cout << "Among them, a demonic boss sensed power emanating from Jake’s herd," << endl;
     cout << "where two siblings, a boy and a girl, resided. Tragedy struck as the boy valiantly intervened," << endl;
     cout << endl;
-    cout << "Press Enter to continue......" << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
     cin.ignore();
+
     cout << endl;
 
     cout << "sacrificing himself to save his sister from the malevolent goblin boss." << endl;
@@ -287,25 +314,46 @@ void firststory()
     cout << "Driven by grief, " << cp.name << " sets out to rescue his kidnapped sister and avenge " << endl;
     cout << "his fallen sibling. Along the journey, " << cp.name << " encounters allies, faces challenges, and" << endl;
     cout << endl;
-    cout << "Press Enter to continue......" << endl;
+    cout << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
     cin.ignore();
 
     cout << "confronts the demon in an epic showdown with multiple endings." << endl;
     cout << "Seeking the demon, " << cp.name << " consults villagers who point him to a wise granny." << endl;
     cout << "She shares insights on the demon and gifts him a special watch to guide his way." << endl;
     cout << endl;
-    cout << "Press Enter to continue......" << endl;
+
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
     cin.ignore();
 
     cout << "At last after the long adventure, crossing the rocky mountains " << cp.name << " reached" << endl;
     cout << " a huge mysterious forest, the watch indicating him the egg," << endl;
-    cout << cp.name << " follwoed the path the watch showed him and reached a castle where the demon lived." << endl;
+    cout << cp.name << " followed the path the watch showed him and reached a castle where the demon lived." << endl;
     cout << endl;
-    cout << "Press Enter to continue......" << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
     cin.ignore();
     system("cls");
-
 }
+
+
+
+
+
 /*-----------------------------------------------------------------------*/
 void firstencounter()
 {
@@ -320,9 +368,15 @@ void firstencounter()
     cout << " he offered " << cp.name << " some riddles to solve and if " << cp.name << " managed to solve them,";
     cout << "the demon would accept  defeat and let " << cp.name << " go forward on his journey." << endl;
     cout << endl;
-    cout << "Press Enter to continue......" << endl;
-
+    cout << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
     cin.ignore();
+
     system("cls");
 
 
@@ -331,9 +385,13 @@ void firstencounter()
 
     cout << "          Where's my sister, demon?" << endl;
     cout << endl;
-    cout << "Press Enter to continue......" << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
     cin.ignore();
-
     cout << "Demon: " << endl;
 
     cout << "         Impatient, mortal. Before you claim your kin, prove your mettle in a battle of wits. Within these walls," << endl;
@@ -341,22 +399,37 @@ void firstencounter()
 
     cout << "          The demon's eyes gleam as an ethereal mist swirls around." << endl;
     cout << endl;
-    cout << "Press Enter to continue......" << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
     cin.ignore();
 
     cout << cp.name << endl;
 
     cout << "         I will do whatever I need to to save my sister!" << endl;
     cout << endl;
-    cout << "Press Enter to continue......" << endl;
+    cout << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
     cin.ignore();
 
     cout << "Demon: " << endl;
 
     cout << "        Very well. Here's your first challenge:" << endl;
 
-    cout << "Press Enter to continue......" << endl;
-    cin.ignore();
+    cout << "Press Enter to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
     system("cls");
 
     do
@@ -376,14 +449,25 @@ void firstencounter()
             cout << "Nice" << endl;
             cout << "You found  " << getcoins() << " coins!!!" << endl << endl;
 
-            cout << "Press Enter to continue......" << endl;
-            cin.ignore(); cin.ignore();
+
+            cout << endl;
+            cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+            cin.get(qui);
+            if (tolower(qui) == 'q')
+            {
+                quit();
+            }
+            cin.ignore();
         }
         else
         {
             cout << "wrong" << endl;
-            cout << "Press Enter to continue......" << endl;
-            cin.ignore(); cin.ignore();
+            cout << "Press Enter to continue...... or Press Q to  quit......" << endl;
+            cin.get(qui);
+            if (tolower(qui) == 'q')
+            {
+                quit();
+            }
             wrongAnswer++;
         }
     } while (ans != "a" && ans != "b" && ans != "c" && ans != "d");
@@ -405,14 +489,26 @@ void firstencounter()
         if (tolowercase(ans) == "c")
         {
             cout << "Amazing" << endl;
-            cout << "You found  " << getcoins() << " coins!!!" << endl << endl;
-            cout << "Press Enter to continue......" << endl;
-            cin.ignore(); cin.ignore();
+            cout << "You found  " << getcoins() << " coins!!!" << endl;
+            cout << endl;
+            cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+            cin.get(qui);
+            if (tolower(qui) == 'q')
+            {
+                quit();
+            }
+            cin.ignore();
         }
         else
         {
             cout << "wrong" << endl;
-            cout << "Press Enter to continue......" << endl;
+            cout << endl;
+            cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+            cin.get(qui);
+            if (tolower(qui) == 'q')
+            {
+                quit();
+            }
             cin.ignore();
             wrongAnswer++;
 
@@ -438,8 +534,14 @@ void firstencounter()
         {
             cout << "Ace" << endl;
             cout << "You found  " << getcoins() << " coins!!!" << endl << endl;
-            cout << "Press Enter to continue......" << endl;
-            cin.ignore(); cin.ignore();
+            cout << endl;
+            cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+            cin.get(qui);
+            if (tolower(qui) == 'q')
+            {
+                quit();
+            }
+            cin.ignore();
         }
         else
         {
@@ -467,14 +569,26 @@ void firstencounter()
         if (tolowercase(ans) == "d")
         {
             cout << "Extraordinary" << endl;
-            cout << "You found  " << getcoins() << " coins!!!" << endl << endl;
-            cout << "Press Enter to continue......" << endl;
-            cin.ignore(); cin.ignore();
+            cout << "You found  " << getcoins() << " coins!!!" << endl;
+            cout << endl;
+            cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+            cin.get(qui);
+            if (tolower(qui) == 'q')
+            {
+                quit();
+            }
+            cin.ignore();
         }
         else
         {
             cout << "wrong" << endl;
-            cout << "Press Enter to continue......" << endl;
+            cout << endl;
+            cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+            cin.get(qui);
+            if (tolower(qui) == 'q')
+            {
+                quit();
+            }
             cin.ignore();
             wrongAnswer++;
         }
@@ -506,8 +620,14 @@ void firstencounter()
         {
             cout << "You are the winner of **THE RIDDLE FIGHT** " << endl;
             cout << "You found  " << getcoins() << " coins!!!" << endl << endl;
-            cout << "Press Enter to continue......" << endl;
-            cin.ignore(); cin.ignore();
+            cout << endl;
+            cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+            cin.get(qui);
+            if (tolower(qui) == 'q')
+            {
+                quit();
+            }
+            cin.ignore();
             system("cls");
         }
         else
@@ -523,7 +643,13 @@ void firstencounter()
         exit(0);
     }
 
-    cout << "Press Enter to continue......" << endl;
+    cout << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
     cin.ignore();
 
     system("cls");
@@ -548,7 +674,12 @@ void FirstSideQuest()      // it comes before the above function
     cout << "he couldn't enter without solving a riddle" << endl;
     cout << "  that was displayed on the gate." << endl;
     cout << endl;
-    cout << "Press Enter to continue......" << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
     cin.ignore();
 
 
@@ -584,8 +715,14 @@ void FirstSideQuest()      // it comes before the above function
             cout << "\"The door opens with a creaking sound\"" << endl;
             cout << endl;
             cout << endl;
-            cout << "Press Enter to continue......" << endl;
-            cin.ignore(); cin.ignore();
+            cout << endl;
+            cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+            cin.get(qui);
+            if (tolower(qui) == 'q')
+            {
+                quit();
+            }
+            cin.ignore();
 
             break;
         }
@@ -617,16 +754,27 @@ void sidequest2()
     cout << "To cross, Jake must solve a puzzle  that controls the \nbridge mechanism." << endl;
     cout << " With determination, " << cp.name << " approaches the puzzle," << endl;
     cout << "ready to unravel its mystery and continue his journey." << endl;
-    cout << "Press Enter to continue......" << endl;
-
+    cout << "Press Enter to continue...... or Press Q to  quit......" << endl << endl;
+    cout << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
     cin.ignore();
 
     system("cls");
     cout << "As " << cp.name << " reached the foot of the bridge, " << cp.name << " eyes fall on the word puzzle that" << endl;
     cout << "he needs to solve to get the bascule bridge to close." << endl;
     cout << endl;
-    cout << "Press Enter to continue......" << endl;
-
+    cout << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
     cin.ignore();
 
     do
@@ -641,8 +789,12 @@ void sidequest2()
 
             cout << "correct" << endl;
             cout << "You found  " << getcoins() << " coins!!!" << endl << endl;
-            cout << "Press Enter to continue......" << endl;
-            cin.ignore(); cin.ignore();
+            cout << "Press Enter to continue...... or Press Q to  quit......" << endl;
+            cin.get(qui);
+            if (tolower(qui) == 'q')
+            {
+                quit();
+            }
             system("cls");
 
         }
@@ -667,8 +819,13 @@ void sidequest2()
 
     cout << cp.name << " moves forward through the bridge, \nreaching the island where he spots where he spots the second demon," << endl;
     cout << "a figure shrouded in darkness and adorned with ethereal wisps." << endl;
-    cout << "Press Enter to continue......" << endl;
-
+    cout << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
     cin.ignore();
 
 }
@@ -681,17 +838,20 @@ void Fight2()
     system("cls");
 
     cout << cp.name << " moves forward through the bridge, reaching the mysterious island where shadows seem to dance with an eerie rhythm." << endl;
-
+    cout << endl << "Press Enter to continue ...." << endl;
+    cin.ignore();
 
     cout << "As he steps onto the island, he spots the second demon, a figure shrouded in darkness." << endl;
 
 
     cout << cp.name << ": \"So, you're the one guarding this island. Where's my sister?\"" << endl;
-
+    cout << endl << "Press Enter to continue ...." << endl;
+    cin.ignore();
 
     cout << "Demon: \"Ah, " << cp.name << ", seeker of kin. Your sister is safe for now. But to proceed, you must prove your intellect." << endl;
     cout << "I am the master of word puzzles, and only through wit can you advance.\"" << endl;
-
+    cout << endl << "Press Enter to continue ...." << endl;
+    cin.ignore();
 
     cout << cp.name << ":\"Enough talk. Give me your best shot, demon.\"" << endl;
     cout << endl;
@@ -752,14 +912,25 @@ void Fight2()
 
     cout << "Demon: \"You may proceed. Your sister awaits, and the challenges will only intensify." << endl;
     cout << "You deserve this egg, take it!\"" << endl;
-    cout << "Press Enter to continue......" << endl;
-
-    cin.ignore(); cin.ignore();
+    cout << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
+    cin.ignore();
 
     cout << "With a nod, the demon dissipates into shadows, allowing " << cp.name << " to continue his journey," << endl;
     cout << "each step taking him closer to the ultimate confrontation with the forces that guard his sister." << endl;
-    cout << "Press Enter to continue......" << endl;
-    cin.ignore();  // story before the shop
+    cout << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
+    cin.ignore();// story before the shop
 
 }
 
@@ -770,44 +941,102 @@ void beforefight()
     cout << "As " << cp.name << " journeys through the ever-changing landscapes, " << endl;
     cout << cp.name << " finds a moment of respite, sitting by the edge of a massive, ancient tree." << endl;
     cout << "The air is filled with a mystical aura when the mysterious figure enters," << endl;
-    cout << "Press Enter to continue......" << endl;
+    cout << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
     cin.ignore();
     cout << "silently appearing amidst the dappled sunlight." << endl;
     cout << "Mysterious Figure:" << cp.name << ", seeker of kin, your quest leads you through realms untold." << endl;
     cout << "Trials await, but fear not, for within you lies the strength to unravel these mysteries. " << endl;
-    cout << "Press Enter to continue......" << endl;
+    cout << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
     cin.ignore();
     cout << cp.name << ": Tell me, what must I face?" << endl;
     cout << "Mysterious Figure, Beyond the horizon, illusions and truths entwine. " << endl;
     cout << "Embrace the challenges; they are stepping stones toward the reunion you seek." << endl;
 
     cout << "With a gesture, the mysterious figure conjures a radiant apple and offers it to " << cp.name << "." << endl;
-    cout << "Press Enter to continue......" << endl;
+    cout << "Press Enter to continue...... or Press Q to  quit......" << endl;
+    cout << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
     cin.ignore();
     system("cls");
     cout << "Mysterious Figure: Take this. Nourishment for your journey." << endl;
     cout << " Let the strength of the fruit mirror the resilience within your spirit." << endl;
-    cout << "Press Enter to continue......" << endl;
+    cout << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
     cin.ignore();
     cout << "With the gift of the mystical apple, " << cp.name << " feels a surge of energy and determination." << endl;
     cout << "The mysterious figure fades into the shadows, leaving " << cp.name << " fortified and ready to" << endl;
     cout << "face the trials that lie ahead." << endl;
-    cout << "Press Enter to continue......" << endl;
+    cout << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
     cin.ignore();
     cout << "As " << cp.name << " rests beneath the shade of an ancient tree, a mysterious figure emerges," << endl;
     cout << "carrying a satchel of mystical potions. The stranger notices " << cp.name << " and," << endl;
     cout << "sensing the purpose in his eyes, decides to share the secrets of his elixirs." << endl;
-    cout << "Press Enter to continue......" << endl;
+    cout << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
     cin.ignore();
     cout << "Mysterious Figure:               Greetings, adventurer. I sense a great journey ahead for you. In my possession," << endl;
     cout << "                                 I have potions that can aid you on your quest. Potions to boost your experience, strength, and speed." << endl;
+    cout << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
     cin.ignore();
 
     cout << cp.name << ":              How do you know what I need?" << endl;
+    cout << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
     cin.ignore();
 
     cout << "Mysterious Figure:         The shadows whisper tales, and your determination echoes through the realms." << endl;
     cout << "                           If you're prepared to invest some coins, these potions can be yours." << endl;
+    cout << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
     cin.ignore();
     cout << cp.name << ":               What do you have?" << endl;
     cin.ignore();
@@ -822,12 +1051,24 @@ void beforefight()
 void beforefight1() //after shop code
 {
     cout << "     After visiting the shop, " << cp.name << " proceeds to move forward on his journey. " << endl;
-    cout << "Press Enter to continue......" << endl;
+    cout << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
     cin.ignore();
     cout << "" << cp.name << " moves ahead towards the town of darkness. full of thorns and dead trees. " << endl;
     cout << "It was as if this town was cursed by the demons. Suddenly he hears a growl from behind the huts " << endl;
     cout << cp.name << " moves forward, from where he hears the sound. Suddenly a demon appears in front of " << cp.name << ". " << endl;
-    cout << "Press Enter to continue......" << endl;
+    cout << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cin.get(qui);
+    if (tolower(qui) == 'q')
+    {
+        quit();
+    }
     cin.ignore();
 
 
