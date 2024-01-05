@@ -1,8 +1,7 @@
 #include<iostream>
 #include<string>
 
-#include<chrono>
-#include<thread>
+
 
 
 using namespace std;
@@ -246,7 +245,7 @@ void menu()
         {
             system("cls");
             cout << "Starting..........." << endl;
-            this_thread::sleep_for(chrono::seconds(2));
+           cin.ignore();
             break;
         }
 
