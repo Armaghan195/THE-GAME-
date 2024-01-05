@@ -65,7 +65,7 @@ public: void runshop(player p)         // run shop is the main function where us
 
 
 
-        system("clear");
+        system("cls");
         cout << "          shop         " << endl;
         cout << "=======================" << endl;
         cout << "| (W)eapon:    $" << weaponp << "      |" << endl;
@@ -252,7 +252,7 @@ void box()
     cout << "Player name cannot be empty, please enter a name" << endl;
 
     }while(cp.name == "");
-    system("clear");
+    system("cls");
     cout << "=====================================================" << endl;
     cout << "||                                                 || " << endl;
     cout << "                  ABYSSAL ODYSSEY                              " << endl;
@@ -280,7 +280,7 @@ void menu()
 
         if ((tolowercase(option)) == "s")                       //checks for users input based on which game starts or quits
         {
-            system("clear");
+            system("cls");
             cout << "Starting..........." << endl << endl;
             cout << "Press Enter to continue......" << endl;
             break;
@@ -294,11 +294,11 @@ void menu()
 
         else
         {
-            system("clear");
+            system("cls");
             cout << "                  wrong input!!!   " << endl;
             cin.ignore(); cin.ignore();
 
-            system("clear");
+            system("cls");
             cout << "            Please Select The correct option   " << endl;
 
         }
@@ -309,7 +309,7 @@ void menu()
 void firststory()
 {
     cin.ignore();                          //remove if shows blank screen on your compiler
-    system("clear");
+    system("cls");
     cout << "On a chilly night, a village was cloaked in snow when ominous beasts attacked." << endl;
     cout << "Among them, a demonic boss sensed power emanating from" << cp.name <<"’s herd," << endl;
     cout << "where two siblings, a boy and a girl, resided. Tragedy struck as the boy valiantly intervened," << endl;
@@ -363,7 +363,7 @@ void firststory()
         quit();
     }
     cin.ignore();
-    system("clear");
+    system("cls");
 }
 
 
@@ -393,7 +393,7 @@ void riddle()
     }
     cin.ignore();
 
-    system("clear");
+    system("cls");
 
 
 
@@ -448,7 +448,7 @@ void riddle()
     {
         quit();
     }
-    system("clear");
+    system("cls");
     /*in below code the user can only enter the option given, it doestnt matter weather the ans is right or not!*/
     do
     {
@@ -491,7 +491,7 @@ void riddle()
     } while (ans != "a" && ans != "b" && ans != "c" && ans != "d");
 
     cout << endl;
-    system("clear");
+    system("cls");
 
     do
     {
@@ -533,7 +533,7 @@ void riddle()
         }
     } while (ans != "a" && ans != "b" && ans != "c" && ans != "d");
 
-    system("clear");
+    system("cls");
 
     do
     {
@@ -571,7 +571,7 @@ void riddle()
 
     } while (ans != "a" && ans != "b" && ans != "c" && ans != "d");
 
-    system("clear");
+    system("cls");
 
     do
     {
@@ -612,7 +612,7 @@ void riddle()
         }
     } while (ans != "a" && ans != "b" && ans != "c" && ans != "d");
 
-    system("clear");
+    system("cls");
 
     do
     {
@@ -646,7 +646,7 @@ void riddle()
                 quit();
             }
             cin.ignore();
-            system("clear");
+            system("cls");
         }
         else
             wrongAnswer++;
@@ -670,7 +670,7 @@ void riddle()
     }
     cin.ignore();
 
-    system("clear");
+    system("cls");
 }
 
 /*-----------------------------------------------------------------------*/
@@ -753,12 +753,12 @@ void FirstSideQuest()      // it comes before the above function
             /////////////////////////////////
 
             cin.ignore(); cin.ignore();
-            system("clear");
+            system("cls");
 
         }
     } while (tolowercase(opt) != "c");               // loop will continue until user enters right answer
 
-    system("clear");
+    system("cls");
 }
 
 void sidequest2()
@@ -782,7 +782,7 @@ void sidequest2()
     }
     cin.ignore();
 
-    system("clear");
+    system("cls");
     cout << "As " << cp.name << " reached the foot of the bridge, " << cp.name << " eyes fall on the word puzzle that" << endl;
     cout << "he needs to solve to get the bascule bridge to close." << endl;
     cout << endl;
@@ -813,7 +813,7 @@ void sidequest2()
             {
                 quit();
             }
-            system("clear");
+            system("cls");
 
         }
         else
@@ -821,7 +821,7 @@ void sidequest2()
             cout << "wrong!!" << endl;
             cout << "Press Enter to continue......" << endl;
             cin.ignore(); cin.ignore();
-            system("clear");
+            system("cls");
         }
 
 
@@ -853,7 +853,7 @@ void sidequest2()
 void puzzle()
 {
 
-    system("clear");
+    system("cls");
 
     cout << cp.name << " moves forward through the bridge, reaching the mysterious island where shadows seem to dance with an eerie rhythm." << endl;
     cout << endl << "Press Enter to continue ...." << endl;
@@ -878,7 +878,7 @@ void puzzle()
 
 
 
-    system("clear");
+    system("cls");
 
     cout << "[Puzzle Fight Starts]\n" << endl;
     cout << "(You Must Enter Correct Option! No Second Chances!!!)" << endl;
@@ -955,7 +955,7 @@ void puzzle()
 /*-----------------------------------------------------------------------*/
 void gotoshop()
 {
-    system("clear");
+    system("cls");
     cout << "As " << cp.name << " journeys through the ever-changing landscapes, " << endl;
     cout << cp.name << " finds a moment of respite, sitting by the edge of a massive, ancient tree." << endl;
     cout << "The air is filled with a mystical aura when the mysterious figure enters," << endl;
@@ -992,7 +992,7 @@ void gotoshop()
         quit();
     }
     cin.ignore();
-    system("clear");
+    system("cls");
     cout << "Mysterious Figure: Take this. Nourishment for your journey." << endl;
     cout << " Let the strength of the fruit mirror the resilience within your spirit." << endl;
     cout << endl;
@@ -1061,7 +1061,7 @@ void gotoshop()
 
     cout << "Mysterious Figure:         Here's what I offer: Potion of Wisdom " << endl;
     cin.ignore();
-    system("clear");
+    system("cls");
     // text before entering the shop
     myshop.loadshop(cp);         /*loads shop from class shop where user can buy abilities*/
 }
@@ -1112,7 +1112,7 @@ void combat(string name, int power, int health)        //fight function which ge
 
     while (health > 0)                                     //checks for the health of the monster
     {
-        system("clear");
+        system("cls");
         cout << name << endl;
         cout << "Power: " << power << " / " << "Health: " << health << endl;
         cout << "=======================" << endl;
