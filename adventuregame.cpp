@@ -5,7 +5,7 @@
 using namespace std;
 
 
-//for lowercase
+//for lowercase  it takes a string  and makes it const and it will check it for the character in strng and replace it with lowercase character
 string tolowercase(const string& str)
 {
     string result;
@@ -24,7 +24,7 @@ string tolowercase(const string& str)
 class player               // class of player where all the data is store,
 {
 public: string name;
-public: int coins = 0;
+public: int coins = 300;
 public: int health = 10;
 public: int damage = 1;
 public: int armorvalue = 0;
@@ -34,10 +34,10 @@ public: int weaponvalue = 1;
 
 };
 player cp;  //current player   of class player
-class shop           //class
+class shop           //class for shop
 {
 
-public: void loadshop(player p)          //
+public: void loadshop(player p)          // a function inside the shop class which passes the obj (class player) as whole to open shop
 {
 
 
@@ -45,7 +45,7 @@ public: void loadshop(player p)          //
 
 }
 
-public: void runshop(player p)
+public: void runshop(player p)         // run shop is the main function where user buys potion, armor and weapon power
 {
     int potionp;
     int armorp;
@@ -55,9 +55,11 @@ public: void runshop(player p)
 
 
 
-    while (true)
+    while (true)            /*loop which continues until user buys some things from shop or exits,
+                              it will update the price of item by increasing it if user buys it, and also
+                              also it will update the stats of user if he buys something*/
     {
-        potionp = (20 + 10 * cp.potion);
+        potionp = (20 + 10 * cp.potion);         // price of object value which will depend upon how many such products user has in his inventory (class player)
         armorp = 100 * (cp.armorvalue + 1);
         weaponp = 100 * cp.weaponvalue;
 
@@ -84,25 +86,26 @@ public: void runshop(player p)
         cout << "========================" << endl;
         // wait for input
 
-        getline(cin, input);
+        getline(cin, input);               // inputing user choices
 
 
-        if (tolowercase(input) == "p" || tolowercase(input) == "potion")
+
+        if (tolowercase(input) == "p" || tolowercase(input) == "potion")     //if user enters p or potion it will call trybuy() to buy more functionto buy potion and updating the inventory,
         {
             trybuy("potion", potionp);
 
         }
-        else if (tolowercase(input) == "w" || tolowercase(input) == "weapon")
+        else if (tolowercase(input) == "w" || tolowercase(input) == "weapon")  //if user enters w or weapon it will call trybuy() to buy weapon power and updating the inventory,
         {
             trybuy("weapon", weaponp);
 
         }
-        else if (tolowercase(input) == "a" || tolowercase(input) == "armor")
+        else if (tolowercase(input) == "a" || tolowercase(input) == "armor")   //if user enters a or armor it will call trybuy() to buy armor power and updating the inventory,
         {
             trybuy("armor", armorp);
 
         }
-        else if (tolowercase(input) == "e" || tolowercase(input) == "exit")
+        else if (tolowercase(input) == "e" || tolowercase(input) == "exit")    //if user enters e or exit it will exit the shop which will break the loop
         {
             break;
 
@@ -114,12 +117,12 @@ public: void runshop(player p)
 
 
 }
-      void trybuy(string item, int cost)
+      void trybuy(string item, int cost)     //trybuy function takes the name of obj to be bought and its cost
       {
-          if (cp.coins >= cost)
+          if (cp.coins >= cost)             //checks if user has more coin then the stuff he is buying
           {
               if (item == "potion")
-                  cp.potion++;
+                  cp.potion++;                //it checks for the item which is to be bought and updates its value in the inventory
 
               else if (item == "weapon")
                   cp.weaponvalue++;
@@ -128,11 +131,12 @@ public: void runshop(player p)
                   cp.armorvalue++;
 
 
-              cp.coins -= cost;
+              cp.coins -= cost;               //it will substract the cost from players inventory
           }
 
 
           else
+                                           // if player doest have enough coin it will display this
           {
               cout << "Ya dont have enough gold coin pal!!! " << endl;
               cin.ignore();
@@ -142,26 +146,26 @@ public: void runshop(player p)
 
 
 };
-shop myshop;
+shop myshop;           //obj of class shop
 
-int getcoins() // to get coins
+int getcoins() // to generate random coins at different
 {
     int upper = (100);
     int lower = (10);
-    srand(time(0));
+    srand(time(0)); //seeds time to current time to generate random  number every time it is called
     int c = (rand() % upper + lower);
     cp.coins += c;
     return c;
 }
-char qui;
+char qui;               //global variable for quit function
 void quit()
 {
     string quit;
-    do {
+    do {                                                                            // ask if user wants to quit
         cout << "Are you sure you want to quit the game?" << endl;
         cout << "Y for Yes and N for No ";
         cin >> quit;
-        if (tolowercase(quit) == "y")
+        if (tolowercase(quit) == "y")                  // checks for user choices based on which the program continues or exits
         {
             cout << "Thanks For Playing!!!" << endl;
             exit(0);
@@ -171,9 +175,9 @@ void quit()
             break;
 
         }
-    } while (tolowercase(quit) != "y" || tolowercase(quit) != "n");
+    } while (tolowercase(quit) != "y" || tolowercase(quit) != "n"); // this loop continues until user enters the right choice
 }
-void box();
+void box();           //function declerations
 void menu();
 void firststory();
 void riddle();
@@ -201,7 +205,7 @@ void afterfight2();
 int main()
 {
 
-
+                          //function calling in main
     box();
     menu();
 
@@ -217,9 +221,9 @@ int main()
     gotoshop();
     beforefight1();
 
-    combat("Vortexus", 4, 10);       //power then health
+    combat("Vortexus", 4, 10);       //enemy name, power then health
     afterfight1();
-    combat("Darkonos", 8, 20);              //enemy name and power then health
+    combat("Darkonos", 8, 20);              //enemy name power then health
     afterfight2();
 
 
@@ -240,10 +244,10 @@ int main()
 /*-----------------------------------------------------------------------*/
 void box()
 {
-    do
+    do                                      //do while loop which keeps running if user donot enter any thing
     {
     cout << "Enter your character name: ";
-    getline(cin, cp.name);
+    getline(cin, cp.name);                                            //takes player name
     if(cp.name == "")
     cout << "Player name cannot be empty, please enter a name" << endl;
 
@@ -274,7 +278,7 @@ void menu()
         cin >> option;
 
 
-        if ((tolowercase(option)) == "s")
+        if ((tolowercase(option)) == "s")                       //checks for users input based on which game starts or quits
         {
             system("clear");
             cout << "Starting..........." << endl << endl;
@@ -298,7 +302,7 @@ void menu()
             cout << "            Please Select The correct option   " << endl;
 
         }
-    } while (tolowercase(option) != "s" || tolowercase(option) != "q");
+    } while (tolowercase(option) != "s" || tolowercase(option) != "q");                       // loop continues until user enters the right option
 }
 
 /*-----------------------------------------------------------------------*/
@@ -307,10 +311,10 @@ void firststory()
     cin.ignore();                          //remove if shows blank screen on your compiler
     system("clear");
     cout << "On a chilly night, a village was cloaked in snow when ominous beasts attacked." << endl;
-    cout << "Among them, a demonic boss sensed power emanating from Jake’s herd," << endl;
+    cout << "Among them, a demonic boss sensed power emanating from" << cp.name <<"’s herd," << endl;
     cout << "where two siblings, a boy and a girl, resided. Tragedy struck as the boy valiantly intervened," << endl;
     cout << endl;
-    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;
+    cout << "Press Enter twice to continue...... or Press Q to  quit......" << endl;   //checks if user wants to continue of exits calling quit()
     cin.get(qui);
     if (tolower(qui) == 'q')
     {
@@ -445,7 +449,7 @@ void riddle()
         quit();
     }
     system("clear");
-
+    /*in below code the user can only enter the option given, it doestnt matter weather the ans is right or not!*/
     do
     {
         cout << "The more you take, the more you leave behind. What am I?" << endl;
@@ -458,7 +462,7 @@ void riddle()
         cout << "Your Option: ";
         cin >> ans;
 
-        if (tolowercase(ans) == "a")
+        if (tolowercase(ans) == "a")                // in this block string stored in ans variable is check for right answer based on which user gets reward by coin
         {
             cout << "Nice" << endl;
             cout << "You found  " << getcoins() << " coins!!!" << endl << endl;
@@ -649,7 +653,7 @@ void riddle()
 
     } while (ans != "a" && ans != "b" && ans != "c" && ans != "d");
 
-    if (wrongAnswer >= 3)
+    if (wrongAnswer >= 3) //checks if user enters more then 3 wrong answers based on which the game continues or exits
     {
         cout << "You cant even answer simple riddles? you low iq noob!!!" << endl;
         cout << "Press Enter to continue......" << endl;
@@ -699,7 +703,7 @@ void FirstSideQuest()      // it comes before the above function
 
 
 
-    do
+    do                              //first side quest which must be answered correctly
     {
         cout << "It said: " << endl;
         cout << "            When a door is not shut tight," << endl;
@@ -752,7 +756,7 @@ void FirstSideQuest()      // it comes before the above function
             system("clear");
 
         }
-    } while (tolowercase(opt) != "c");
+    } while (tolowercase(opt) != "c");               // loop will continue until user enters right answer
 
     system("clear");
 }
@@ -791,14 +795,14 @@ void sidequest2()
     }
     cin.ignore();
 
-    do
+    do                                          // a loop which continues until user enters enters the correct string
     {
         cout << "It read 'Q..E..S..T..U.. ' \nArrange the letters in a way that it forms a word!" << endl;
 
 
         cin >> answer;
 
-        if (tolowercase(answer) == "quest")
+        if (tolowercase(answer) == "quest")                 //converts string to lowercase and campare it with the correct word
         {
 
             cout << "correct" << endl;
@@ -821,7 +825,7 @@ void sidequest2()
         }
 
 
-    } while (answer != "quest" && answer != "QUEST");
+    } while (answer != "quest" && answer != "QUEST");                  //loop continues until user enters right answer (quest)
 
 
     cout << "The moment " << cp.name << " utters the correct word,\na subtle hum emanates from the bridge's mechanism.";
@@ -881,38 +885,38 @@ void puzzle()
 
 
 
-    string words[] = { "EVADENTUR", "LACMPEX", "TPRI", "VEIL", "OICNS", "TOPS" };
-    string solutions[] = { "ADVENTURE", "EXAMPLE", "TRIP", "LIVE", "COINS", "STOP" };
+    string words[] = { "EVADENTUR", "LAEMPEX", "TPRI", "VEIL", "OICNS", "TOPS" };       // string words include un-sorted word
+    string solutions[] = { "ADVENTURE", "EXAMPLE", "TRIP", "LIVE", "COINS", "STOP" };    // string solution includes the solution of un-sorted words
 
-    int correctGuesses = 0, wrongGuesses = 0;
+    int correctGuesses = 0, wrongGuesses = 0;                    //check for wrong answer
 
 
 
-    for (int i = 0; i <= 5; ++i)
+    for (int i = 0; i <= 5; ++i)         // loop for the unsorted string array
     {
         cout << words[i] << endl;
-        string userGuess;
+        string userGuess;                //takes in user guess
         cout << "Your guess: ";
         cin >> userGuess;
 
 
-        string lowercaseUserGuess = tolowercase(userGuess);
+        string lowercaseUserGuess = tolowercase(userGuess);                //transforms uppercase to lowercase
         string lowercaseSolution = tolowercase(solutions[i]);
 
-        if (lowercaseUserGuess == lowercaseSolution)
+        if (lowercaseUserGuess == lowercaseSolution)                  //checks the user entered word for the solution
         {
             cout << "Correct! Well done.\n" << endl;
-            cout << "You found  " << getcoins() << " coins!!!" << endl << endl;
-            correctGuesses++;
+            cout << "You found  " << getcoins() << " coins!!!" << endl << endl;              //if answer is correct user gets coin
+            correctGuesses++;                                                            //check for correct guesses
         }
-        else if (lowercaseUserGuess != lowercaseSolution)
+        else if (lowercaseUserGuess != lowercaseSolution)                       // check if user enters the wrong word
         {
             cout << "Wrong guess. Try again.\n" << endl;
-            wrongGuesses++;
+            wrongGuesses++;                                                         //check for incorrect guesses
 
         }
 
-        if (wrongGuesses >= 3)
+        if (wrongGuesses >= 3)                                         // if user enters 3 or more wrong guess the the game exits
         {
             cout << "You noob cant even spell the word right!!!, better luck next time!";
             cin.ignore();
@@ -1059,7 +1063,7 @@ void gotoshop()
     cin.ignore();
     system("clear");
     // text before entering the shop
-    myshop.loadshop(cp);
+    myshop.loadshop(cp);         /*loads shop from class shop where user can buy abilities*/
 }
 /****************************************************************************************************8*/
 void beforefight1() //after shop code
@@ -1089,11 +1093,11 @@ void beforefight1() //after shop code
 
 
 
-}  //before first fight code
+}  //before first fight text
 
 
 /****************************************************************************************************8*/
-void combat(string name, int power, int health)
+void combat(string name, int power, int health)        //fight function which gets name, its attack and its health
 {
     string input;
     string n = "";
@@ -1106,7 +1110,7 @@ void combat(string name, int power, int health)
 
 
 
-    while (health > 0)
+    while (health > 0)                                     //checks for the health of the monster
     {
         system("clear");
         cout << name << endl;
@@ -1117,36 +1121,36 @@ void combat(string name, int power, int health)
         cout << "=======================" << endl;
         cout << " Potions: " << cp.potion << "  Health: " << cp.health << endl;
         getline(cin, input);
-        if (tolowercase(input) == "a" || tolowercase(input) == "attack")
+        if (tolowercase(input) == "a" || tolowercase(input) == "attack")               //checks for user inputs
         {
             //attack
-            int damage = power - cp.armorvalue;
+            int damage = power - cp.armorvalue;                  // it substracts the enemy attack from players health
 
             if (damage < 0)
                 damage = 0;
 
-            srand(time(0));
-            int attack = (1 + rand() % cp.weaponvalue) + (1 + rand() % 4);
+            srand(time(0));                                                             //seeds time
+            int attack = (1 + rand() % cp.weaponvalue) + (1 + rand() % 4);                     //generates random attack base on players weapon value plus random number b/w 1 & 4
 
             cout << "With haste " << cp.name << " surge forth, " << cp.name << " sword flying in his hands! As " << cp.name << " pass, the " << n << endl;
             cout << "strikes " << cp.name << " as he pass " << endl;
             cout << "" << cp.name << " lose " << damage << " health and deal " << attack << " damage " << endl;
-            cp.health -= damage;
+            cp.health -= damage;                            //check for the player health which will be sub by the daage dealth by demon
 
-            health -= attack;
+            health -= attack;                        //check for the demon health which will be substracted by player attack
 
 
         }
         else if (tolowercase(input) == "d" || tolowercase(input) == "defend")
         {
-            //defend
-            int damage = (power / 4) - cp.armorvalue;
+                                                               //defend code
+            int damage = (power / 4) - cp.armorvalue;              // player gets less damage  by defending
 
             if (damage < 0)
                 damage = 0;
 
             srand(time(0));
-            int attack = (1 + rand() % cp.weaponvalue) / 2;
+            int attack = (1 + rand() % cp.weaponvalue) / 2;            //player attacks but less as compared to attack choice
 
             cout << "As the " << n << " prepares to strike, " << cp.name << " ready his sword in a defensive stance";
             cout << "strikes " << cp.name << " as " << cp.name << " passes " << endl;
@@ -1156,9 +1160,9 @@ void combat(string name, int power, int health)
         }
         else if (tolowercase(input) == "r" || tolowercase(input) == "run")
         {
-            //run
+            //in run option there are 2 choices in which player can escape and goto shop or try to escape and get damage by demon (randomly)
             srand(time(0));
-            if ((rand() % 2) == 0)
+            if ((rand() % 2) == 0)         //generates random number 0 for getting caught and 1 for escaping towards shop
             {
                 cout << "As " << cp.name << " sprint away from the " << n << ",it strikes catches " << cp.name << " from the back,  " << endl;
                 cout << "sending " << cp.name << " sprawling onto the ground. " << endl;
@@ -1178,7 +1182,7 @@ void combat(string name, int power, int health)
                 cout << "Press Enter to continue......" << endl;
                 cin.ignore();
                 // go to store
-                myshop.loadshop(cp);
+                myshop.loadshop(cp); // if successfull loads shop
 
 
 
@@ -1187,36 +1191,36 @@ void combat(string name, int power, int health)
 
         }
 
-        else if (tolowercase(input) == "h" || tolowercase(input) == "heal")
+        else if (tolowercase(input) == "h" || tolowercase(input) == "heal")     // in heal option the player will check for potions in invetory  based on which user can get health
         {
             //heal
 
-            if (cp.potion == 0)
+            if (cp.potion == 0)      //check if user has no potion
             {
                 cout << "As " << cp.name << " desperatly grasp for a portion in bag, all that " << cp.name << " " << endl;
                 cout << "feel are empty glass flasks.  " << endl;
-                int damage = power - cp.armorvalue;
-                if (damage < 0)
+                int damage = power - cp.armorvalue;        //if he has no potion he will get damage
+                if (damage < 0)          //check for damage
                     damage = 0;
 
-                cp.health -= damage;
+                cp.health -= damage;               //the demon attack sub the player health
 
                 cout << "The " << name << "  strikes " << cp.name << " with a mighty blow and " << cp.name << " lose " << damage << " health" << endl;
 
             }
-            else
+            else             //if he has more then 1 potions
             {
                 cout << cp.name << " reached  bag and pulled out a purple flask. " << endl;
                 cout << "and takes a long drink! " << endl;
-                int potionvalue = 3;
+                int potionvalue = 4;                //health which will be given to user
                 cout << "" << cp.name << " gained " << potionvalue << " health. " << endl;
-                cp.health += potionvalue;
-                cp.potion--;
+                cp.health += potionvalue;         //updating user stats (player health)
+                cp.potion--;                  // subs potion from players inventory if user uses the potion
 
                 cout << "as " << cp.name << " were occupied, the " << n << " advanced and struck." << endl;
-                int damage = (power / 2 - cp.armorvalue);
+                int damage = (power / 3 - cp.armorvalue);        //he will still get damage but it will be less
 
-                if (damage < 0)
+                if (damage < 0)            //check for damage so it wont go negative
                     damage = 0;
 
                 cout << "" << cp.name << " lose " << damage << " Health." << endl;
@@ -1226,7 +1230,7 @@ void combat(string name, int power, int health)
             cin.ignore();
         }
 
-        if (cp.health <= 0)
+        if (cp.health <= 0)                           //check for player health so it doesnt go negative and player dies if he reaches 0 health
         {
             //death code
             cout << "As the " << name << " stands tall and comes down to strike, " << cp.name << " have been slayed by the mighty " << name << endl;
@@ -1241,7 +1245,7 @@ void combat(string name, int power, int health)
     }
 
     srand(time(0));
-    int c = rand() % 50 + 10;
+    int c = rand() % 50 + 10;                             //coin for user, which will be generated it player kills the monster
     cout << "As " << cp.name << " stand victorius over the " << name << " it's body dissolve into  " << getcoins() << " Gold coins!" << endl;
     cout << "Press Enter to continue......" << endl;
     cin.ignore();
@@ -1251,7 +1255,7 @@ void combat(string name, int power, int health)
 
 }
 
-void afterfight1()
+void afterfight1()        //text
 {
     cout << "Jake moves forward, leaving the defeated demon, on his way to get his sister back. " << endl;
     cout << "He moves forward, through day and night, crossing hills and rivers " << endl;
@@ -1265,7 +1269,7 @@ void afterfight1()
     }
     cin.ignore();
 }
-void afterfight2()
+void afterfight2()    //endind text
 {
      cout << "At last, Jake won and fell to the ground when his sister came running towards him." << endl;
     cout << "She held his face up and placed him in his lap." << endl;
